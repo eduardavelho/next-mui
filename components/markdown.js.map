@@ -1,1 +1,0 @@
-{"version":3,"file":"markdown.js","sourceRoot":"","sources":["../src/components/markdown.tsx"],"names":[],"mappings":";;;;AAAA,+DAA0B;AAC1B,8DAA0D;AAM1D,SAAgB,QAAQ,CAAC,EAAE,OAAO,EAAiB;IACjD,MAAM,eAAe,GAAG,IAAA,gCAAc,GAAE,CAAC;IAEzC,OAAO,CACL,uCACE,SAAS,EAAE,eAAe,CAAC,QAAQ,EACnC,uBAAuB,EAAE,EAAE,MAAM,EAAE,OAAO,EAAE,GAC5C,CACH,CAAC;AACJ,CAAC;AATD,4BASC"}
