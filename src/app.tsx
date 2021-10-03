@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import { Theme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { CssTypography } from "./typography/css-typography";
 
 export function app({
   theme,
@@ -22,6 +23,7 @@ export function app({
     return (
       <>
         <ThemeProvider theme={theme}>
+          <CssTypography />
           <CssBaseline />
           <Layout>
             <Component {...pageProps} />

@@ -2827,3 +2827,8 @@ export const typographyStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export function CssTypography() {
+  typographyStyles();
+  return null;
+}

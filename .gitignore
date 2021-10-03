@@ -1,8 +1,17 @@
+/*.d.ts
+/*.js
+/*.js.map
+
 *.log
 *.pid
 *.seed
 *.pid.lock
 *.tsbuildinfo
+
+/utils
+/components
+/typography
+/storybook-static
 
 logs
 pids
