@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const typographyStyles = makeStyles((theme) => ({
+export const useTypographyStyles = makeStyles((theme) => ({
   "@global": {
     "@font-face": {
       fontFamily: '"Roboto"',
@@ -2829,6 +2829,6 @@ export const typographyStyles = makeStyles((theme) => ({
 }));
 
 export function CssTypography() {
-  typographyStyles();
+  useTypographyStyles();
   return null;
 }
