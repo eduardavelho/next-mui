@@ -1,5 +1,5 @@
 {
-  "name": "next-material",
+  "name": "@egvelho/next-mui",
   "version": "1.0.0",
   "description": "Material UI components for Next.js",
   "main": "index.js",
