@@ -7,15 +7,9 @@ import NextDocument, {
   DocumentContext,
   DocumentProps,
 } from "next/document";
-import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/core/styles";
+import { ServerStyleSheets } from "@material-ui/core/styles";
 
-export function document({
-  lang,
-  ServerStyleSheets,
-}: {
-  lang: string;
-  ServerStyleSheets: typeof MuiServerStyleSheets;
-}) {
+export function document({ lang }: { lang: string }) {
   return class Document extends NextDocument<DocumentProps> {
     static async getInitialProps(context: DocumentContext) {
       const sheets = new ServerStyleSheets();
