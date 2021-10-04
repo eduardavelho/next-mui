@@ -1,7 +1,5 @@
 import React from "react";
 import { useTheme } from "@material-ui/core/styles";
-import { OverridableComponent } from "@material-ui/core/OverridableComponent";
-import { SvgIconTypeMap } from "@material-ui/core";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import MuiAppBar from "@material-ui/core/AppBar";
@@ -27,7 +25,7 @@ export interface AppBarProps {
   itemsAriaLabel: string;
   drawerButtonAriaLabel: string;
   setDrawerOpen: (drawerOpen: boolean) => void;
-  drawerIcon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+  drawerIcon?: React.ElementType;
 }
 
 export function AppBar({

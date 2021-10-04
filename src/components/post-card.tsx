@@ -8,8 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
-import { OverridableComponent } from "@material-ui/core/OverridableComponent";
-import { SvgIconTypeMap } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ModeCommentIcon from "@material-ui/icons/ModeComment";
@@ -192,7 +190,7 @@ function CardInfo({
   amount,
   ariaLabel,
 }: {
-  Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+  Icon: React.ElementType;
   amount: number;
   ariaLabel?: string;
 }) {

@@ -1,6 +1,4 @@
 import React from "react";
-import { SvgIconTypeMap } from "@material-ui/core";
-import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import MuiDrawer from "@material-ui/core/Drawer";
 import MuiLink from "@material-ui/core/Link";
 import List from "@material-ui/core/List";
@@ -12,7 +10,7 @@ import Link from "next/link";
 type Item = {
   key: React.Key;
   label: string;
-  Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+  Icon: React.ElementType;
 } & ({ href: string } | { onClick: () => void });
 
 export interface DrawerProps {
