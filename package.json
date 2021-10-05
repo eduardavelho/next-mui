@@ -8,6 +8,7 @@
     "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "serve-storybook": "serve storybook-static -l 6006",
+    "deploy-storybook": "gh-pages -d storybook-static",
     "clean-project": "node scripts/clean-project",
     "typecheck": "tsc"
   },
@@ -27,6 +28,7 @@
     "@storybook/addon-links": "^6.3.7",
     "@storybook/cli": "^6.3.7",
     "@storybook/react": "^6.3.7",
+    "gh-pages": "^3.2.3",
     "next": "^11.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
