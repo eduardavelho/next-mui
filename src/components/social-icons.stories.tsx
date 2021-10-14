@@ -17,7 +17,7 @@ export const Usage = () => {
       email="email@email.email"
       instagram="https://instagram.com/teste"
       facebook
-      youtube="https://youtube.com/teste"
+      youTube="https://youtube.com/teste"
       socialAnchorTitle="Share in"
       largeIcons
       darkIcons

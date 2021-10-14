@@ -9,6 +9,7 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import EmailIcon from "@material-ui/icons/Email";
 
 const icons: [
@@ -57,7 +58,8 @@ const icons: [
     "LinkedIn",
   ],
   ["instagram", InstagramIcon, "#e4405f", (url) => url, "Instagram"],
-  ["youtube", YouTubeIcon, "#FF0000", (url) => url, "YouTube"],
+  ["youTube", YouTubeIcon, "#FF0000", (url) => url, "YouTube"],
+  ["gitHub", GitHubIcon, "#4078c0", (url) => url, "GitHub"],
   [
     "lattes",
     (props: unknown) => (
@@ -78,7 +80,8 @@ export interface SocialIconsProps {
   whatsApp?: boolean | string;
   linkedIn?: boolean | string;
   instagram?: string;
-  youtube?: string;
+  youTube?: string;
+  gitHub?: string;
   lattes?: string;
   email?: string;
   smallIcons?: boolean;
