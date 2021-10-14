@@ -20,14 +20,15 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
 
   function mapItemToValue(item: Item) {
     const hash = window.location.hash;
-    const url = router.pathname.concat(hash);
+    const url = router.pathname
+      .concat(router.pathname.endsWith("/") ? "" : "/")
+      .concat(hash);
+    const href =
+      "href" in item
+        ? item.href.concat(item.href.endsWith("/") ? "" : "/")
+        : "";
 
-    if (
-      "href" in item &&
-      item.href
-        .concat(item.href.endsWith("/") ? "" : "/")
-        .startsWith(url.concat(url.endsWith("/") ? "" : "/"))
-    ) {
+    if ("href" in item && url.includes(href)) {
       return item.href;
     } else {
       return undefined;
@@ -37,8 +38,9 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
   const getValue = () =>
     items
       .map((item) => mapItemToValue(item))
-      .concat(undefined)
-      .sort()[0];
+      .filter((item) => item)
+      .sort()
+      .reverse()[0];
 
   React.useEffect(() => {
     setValue(getValue());

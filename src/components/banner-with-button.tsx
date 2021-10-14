@@ -33,11 +33,11 @@ export function BannerWithButton({
     <Button
       variant="outlined"
       color="inherit"
-      component="a"
       style={{
         borderWidth: "3px",
         borderRadius: "8px",
       }}
+      component={"href" in buttonProps ? "a" : "button"}
       onClick={"onClick" in buttonProps ? buttonProps.onClick : undefined}
     >
       <Box paddingY={1} paddingX={isDesktop ? 4 : 3}>

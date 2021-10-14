@@ -70,7 +70,7 @@ export function PostCard({
         )}
         {authorPicture && (
           <Avatar
-            alt={authorName}
+            alt={authorName ?? ""}
             src={authorPicture}
             style={{
               margin: `${image ? "-28px" : "16px"} auto 0`,

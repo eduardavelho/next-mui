@@ -8,6 +8,7 @@ export interface BannerProps {
   image?: string;
   imageAlt?: string;
   imageWidth?: number;
+  imageHeight?: number;
   background?: string;
   color?: string;
   title?: React.ReactNode;
@@ -16,8 +17,9 @@ export interface BannerProps {
 
 export function Banner({
   image,
-  imageAlt,
+  imageAlt = "",
   imageWidth = 128,
+  imageHeight = 128,
   background,
   color,
   title,
@@ -46,8 +48,11 @@ export function Banner({
             <img
               src={image}
               alt={imageAlt}
+              width={imageWidth}
+              height={imageHeight}
               style={{
                 width: imageWidth,
+                height: "auto",
               }}
             />
           </Box>

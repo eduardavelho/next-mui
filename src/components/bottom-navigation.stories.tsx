@@ -14,7 +14,7 @@ export const Usage = () => {
       items={[
         { key: 1, href: "/", label: "Alarm Off", Icon: AlarmOffIcon },
         { key: 2, href: "/a", label: "Alarm Off 2", Icon: AlarmOffIcon },
-        { key: 3, href: "/b", label: "Alarm Off 3", Icon: AlarmOffIcon },
+        { key: 3, href: "/a/b", label: "Alarm Off 3", Icon: AlarmOffIcon },
       ]}
     />
   );

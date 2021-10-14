@@ -3,7 +3,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Link from "next/link";
 
-type Item = { key: React.Key; label: string } & (
+type Item = { key: React.Key; label: React.ReactNode } & (
   | { href: string }
   | { onClick: () => void }
 );

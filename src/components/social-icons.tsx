@@ -1,19 +1,26 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import { SvgIconTypeMap } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import YouTubeIcon from "@material-ui/icons/YouTube";
 import EmailIcon from "@material-ui/icons/Email";
 
 const icons: [
   keyof Omit<
     SocialIconsProps,
-    "socialAnchorTitle" | "smallIcons" | "largeIcons" | "iconsInheritFontSize"
+    | "socialAnchorTitle"
+    | "smallIcons"
+    | "largeIcons"
+    | "iconsInheritFontSize"
+    | "isMe"
+    | "lightIcons"
+    | "darkIcons"
   >,
   OverridableComponent<SvgIconTypeMap<{}, "svg">>,
   string,
@@ -50,6 +57,7 @@ const icons: [
     "LinkedIn",
   ],
   ["instagram", InstagramIcon, "#e4405f", (url) => url, "Instagram"],
+  ["youtube", YouTubeIcon, "#FF0000", (url) => url, "YouTube"],
   [
     "lattes",
     (props: unknown) => (
@@ -70,12 +78,16 @@ export interface SocialIconsProps {
   whatsApp?: boolean | string;
   linkedIn?: boolean | string;
   instagram?: string;
+  youtube?: string;
   lattes?: string;
   email?: string;
   smallIcons?: boolean;
   largeIcons?: boolean;
   iconsInheritFontSize?: boolean;
   socialAnchorTitle: string;
+  isMe?: boolean;
+  lightIcons?: boolean;
+  darkIcons?: boolean;
 }
 
 const fontSizes: [keyof SocialIconsProps, "small" | "inherit" | "large"][] = [
@@ -90,6 +102,9 @@ export function SocialIcons(props: SocialIconsProps) {
     smallIcons,
     largeIcons,
     iconsInheritFontSize,
+    isMe,
+    lightIcons,
+    darkIcons,
     ...socialIcons
   } = props;
 
@@ -98,6 +113,9 @@ export function SocialIcons(props: SocialIconsProps) {
     .concat([["largeIcons", "large"]]);
 
   const [url, setUrl] = React.useState("");
+
+  const lightColor = lightIcons ? "rgba(255, 255, 255, 0.8)" : undefined;
+  const darkColor = darkIcons ? "rgba(0, 0, 0, 0.8)" : undefined;
 
   React.useEffect(() => {
     setUrl(window.location.href);
@@ -116,10 +134,20 @@ export function SocialIcons(props: SocialIconsProps) {
                   : getHref(url)
               }
               target="_blank"
-              rel="nofollow noopener noreferrer"
+              rel={`${
+                typeof socialIcons[icon] === "string" && isMe
+                  ? "me"
+                  : "nofollow"
+              } noopener noreferrer`}
               title={`${socialAnchorTitle} ${name}`}
             >
-              <Icon style={{ color, cursor: "pointer" }} fontSize={fontSize} />
+              <Icon
+                style={{
+                  color: lightColor ?? darkColor ?? color,
+                  cursor: "pointer",
+                }}
+                fontSize={fontSize}
+              />
             </a>
           </Box>
         ))}

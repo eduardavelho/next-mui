@@ -8,7 +8,11 @@ import MuiBreadcrumbs from "@material-ui/core/Breadcrumbs";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 export interface BreadcrumbsProps {
-  breadcrumbs: { key: React.Key; label: React.ReactNode; href: string }[];
+  breadcrumbs: {
+    key: React.Key;
+    label: React.ReactNode;
+    href: string;
+  }[];
 }
 
 export function Breadcrumbs({ breadcrumbs }: BreadcrumbsProps) {

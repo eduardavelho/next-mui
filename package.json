@@ -1,16 +1,16 @@
 {
   "name": "@egvelho/next-mui",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Material UI components for Next.js",
   "main": "index.js",
   "scripts": {
     "build": "tsc --build tsconfig.build.json && cp -rf src/typography typography",
-    "start": "start-storybook -p 6006",
+    "clean-project": "node scripts/clean-project",
+    "typecheck": "tsc",
+    "start-storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "serve-storybook": "serve storybook-static -l 6006",
-    "deploy-storybook": "gh-pages -d storybook-static",
-    "clean-project": "node scripts/clean-project",
-    "typecheck": "tsc"
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "author": "egvelho",
   "license": "GPL-3.0",
