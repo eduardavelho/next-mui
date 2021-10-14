@@ -55,7 +55,7 @@ export function AppBar({
   const DrawerIcon = drawerIcon;
   const theme = useTheme();
   const scrollTrigger = useScrollTrigger({
-    target: window ?? undefined,
+    target: typeof window !== "undefined" ? window : undefined,
   });
 
   return (
