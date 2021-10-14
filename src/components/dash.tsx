@@ -12,12 +12,12 @@ export interface DashProps {
   appBarColor: AppBarProps["color"];
   shortName: AppBarProps["shortName"];
   logo: AppBarProps["logo"];
-  logoWidth: AppBarProps["logoWidth"];
-  logoHeight: AppBarProps["logoHeight"];
+  logoWidth?: AppBarProps["logoWidth"];
+  logoHeight?: AppBarProps["logoHeight"];
   appBarItems: AppBarProps["items"];
   appBarItemsAriaLabel: AppBarProps["itemsAriaLabel"];
   appBarIcons: AppBarProps["icons"];
-  drawerIcon: AppBarProps["drawerIcon"];
+  drawerIcon?: AppBarProps["drawerIcon"];
   drawerButtonAriaLabel: AppBarProps["drawerButtonAriaLabel"];
   drawerItemsAriaLabel: DrawerProps["itemsAriaLabel"];
   drawerItems: DrawerProps["items"];
