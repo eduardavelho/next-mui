@@ -62,6 +62,7 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
         width: "100%",
         position: "sticky",
         bottom: 0,
+        zIndex: 1100,
       }}
       showLabels
     >
