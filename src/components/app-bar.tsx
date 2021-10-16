@@ -1,5 +1,6 @@
 import React from "react";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import Slide from "@material-ui/core/Slide";
 import Tabs from "@material-ui/core/Tabs";
@@ -43,8 +44,8 @@ export function AppBar({
   color,
   shortName,
   logo,
-  logoWidth = 42,
-  logoHeight = 42,
+  logoWidth = 36,
+  logoHeight = 36,
   icons,
   items,
   itemsAriaLabel,
@@ -54,6 +55,7 @@ export function AppBar({
 }: AppBarProps) {
   const DrawerIcon = drawerIcon;
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const scrollTrigger = useScrollTrigger({
     target: typeof window !== "undefined" ? window : undefined,
   });
@@ -92,13 +94,13 @@ export function AppBar({
                   style={{
                     width: logoWidth,
                     height: "auto",
-                    maxHeight: 42,
+                    maxHeight: 36,
                     maxWidth: 96,
                   }}
                 />
               </Box>
-              <Box marginRight={3}>
-                <Typography variant="h6" component="span">
+              <Box marginRight={isMobile ? undefined : 3}>
+                <Typography variant="subtitle1" component="span">
                   {shortName}
                 </Typography>
               </Box>

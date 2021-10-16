@@ -102,7 +102,7 @@ function InfoViewText({ text, reverse }: { text: string; reverse?: boolean }) {
   return (
     <Box display="flex" alignItems="center" flexGrow={1}>
       <Typography
-        variant={isDesktop ? "h5" : "body1"}
+        variant={isDesktop ? "subtitle1" : "body1"}
         component="p"
         align={reverse === true ? "right" : undefined}
         style={{
