@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export function useMarkdownStyles(): { markdown: string } {
-  const markdownStyles = makeStyles((theme) => ({
+export const useMarkdownStyles: () => { markdown: string } = makeStyles(
+  (theme) => ({
     markdown: {
       overflowY: "auto",
       "& > p:first-child": {
@@ -153,7 +153,5 @@ export function useMarkdownStyles(): { markdown: string } {
         },
       },
     },
-  }));
-
-  return markdownStyles as any;
-}
+  })
+);
