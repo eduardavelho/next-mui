@@ -27,35 +27,21 @@ export function AccordionList({
         <Accordion key={key}>
           <AccordionSummary
             style={{
-              paddingLeft: theme.spacing(1.5),
-              paddingRight: theme.spacing(1.5),
+              paddingLeft: theme.spacing(2),
+              paddingRight: theme.spacing(2),
             }}
-            expandIcon={
-              <Box paddingRight={{ sm: 0, md: 1 }}>
-                <ExpandMoreIcon />
-              </Box>
-            }
+            expandIcon={<ExpandMoreIcon />}
             aria-controls={expandIconAriaLabel}
           >
             {header}
           </AccordionSummary>
           <AccordionDetails
             style={{
-              paddingLeft: theme.spacing(1.5),
-              paddingRight: theme.spacing(1.5),
+              paddingLeft: theme.spacing(2),
+              paddingRight: theme.spacing(2),
             }}
           >
-            <Box
-              paddingRight={{ sm: 0, md: 8 }}
-              paddingBottom={{ sm: 0, md: 2 }}
-            >
-              <Box
-                paddingRight={{ sm: 0, md: 8 }}
-                paddingBottom={{ sm: 0, md: 2 }}
-              >
-                {content}
-              </Box>
-            </Box>
+            {content}
           </AccordionDetails>
         </Accordion>
       ))}

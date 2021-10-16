@@ -22,7 +22,7 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
     const hash = window.location.hash;
     const url = router.pathname
       .concat(router.pathname.endsWith("/") ? "" : "/")
-      .concat(hash);
+      .concat(hash ? hash.concat(hash.endsWith("/") ? "" : "/") : "");
     const href =
       "href" in item
         ? item.href.concat(item.href.endsWith("/") ? "" : "/")
