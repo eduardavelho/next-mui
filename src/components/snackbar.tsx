@@ -1,10 +1,10 @@
 import React from "react";
 import MuiSnackbar from "@material-ui/core/Snackbar";
-import Alert, { AlertProps } from "@material-ui/lab/Alert";
+import Alert from "@material-ui/lab/Alert";
 
 interface Content {
-  message: AlertProps["children"];
-  severity: AlertProps["severity"];
+  message: React.ReactNode;
+  severity: "error" | "info" | "success" | "warning" | undefined;
 }
 
 export interface SnackbarProps {

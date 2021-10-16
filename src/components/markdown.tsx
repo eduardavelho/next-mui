@@ -1,12 +1,12 @@
 import React from "react";
-import { markdownStyles } from "../utils/markdown-styles";
+import { useMarkdownStyles } from "../utils/use-markdown-styles";
 
 export interface MarkdownProps {
   content: string;
 }
 
 export function Markdown({ content }: MarkdownProps) {
-  const markdownClasses = markdownStyles();
+  const markdownClasses = useMarkdownStyles();
 
   return (
     <div

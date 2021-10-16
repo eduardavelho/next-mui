@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
-import { AppProps } from "next/app";
-import { Theme } from "@material-ui/core";
+import type { AppProps } from "next/app";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { CssTypography } from "./typography/css-typography";
+import type { Theme } from "./types";
 
 export function app({
   theme,

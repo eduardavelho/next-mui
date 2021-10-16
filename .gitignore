@@ -1,12 +1,12 @@
-/*.d.ts
-/*.js
-/*.js.map
-
 *.log
 *.pid
 *.seed
 *.pid.lock
 *.tsbuildinfo
+
+/*.d.ts
+/*.js
+/*.js.map
 
 /utils
 /components

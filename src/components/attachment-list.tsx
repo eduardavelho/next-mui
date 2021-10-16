@@ -1,11 +1,11 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import Chip, { ChipProps } from "@material-ui/core/Chip";
+import Chip from "@material-ui/core/Chip";
 import GetAppIcon from "@material-ui/icons/GetApp";
 
 export interface AttachmentListProps {
   items: { key: React.Key; title: string; href: string }[];
-  itemColor?: ChipProps["color"];
+  itemColor?: "primary" | "secondary" | "default" | undefined;
 }
 
 export function AttachmentList({

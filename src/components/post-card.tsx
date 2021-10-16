@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Card, { CardProps } from "@material-ui/core/Card";
+import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -29,7 +29,7 @@ export type PostCardProps = {
   commentsAriaLabel?: string;
   views?: number;
   viewsAriaLabel?: string;
-  elevation?: CardProps["elevation"];
+  elevation?: number | undefined;
 } & ({ href: string } | { onClick: () => void });
 
 export function PostCard({

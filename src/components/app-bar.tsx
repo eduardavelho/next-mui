@@ -43,7 +43,7 @@ export function AppBar({
   color,
   shortName,
   logo,
-  logoWidth = 96,
+  logoWidth = 42,
   logoHeight = 42,
   icons,
   items,
