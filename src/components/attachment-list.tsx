@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import Chip from "@material-ui/core/Chip";
+import Button from "@material-ui/core/Button";
 import GetAppIcon from "@material-ui/icons/GetApp";
 
 export interface AttachmentListProps {
@@ -16,17 +16,17 @@ export function AttachmentList({
     <Box flexWrap="wrap" display="flex" marginTop={2}>
       {items.map(({ title, href, key }) => (
         <Box key={key} marginRight={0.5} marginBottom={0.5}>
-          <Chip
+          <Button
+            variant="contained"
             color={itemColor}
             component="a"
             download={title}
             href={href}
-            label={title}
-            icon={<GetAppIcon />}
-            style={{
-              cursor: "pointer",
-            }}
-          />
+            title={title}
+            startIcon={<GetAppIcon />}
+          >
+            {title}
+          </Button>
         </Box>
       ))}
     </Box>

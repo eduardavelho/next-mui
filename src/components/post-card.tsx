@@ -54,135 +54,122 @@ export function PostCard({
   const theme = useTheme();
 
   const postCard = (
-    <Card
-      elevation={elevation}
-      onClick={() => "onClick" in props && props.onClick()}
-    >
-      <CardActionArea>
-        {image && (
-          <CardMedia
-            image={image}
-            title={title}
-            style={{
-              height: "140px",
-            }}
-          />
-        )}
-        {authorPicture && (
-          <Avatar
-            alt={authorName ?? ""}
-            src={authorPicture}
-            style={{
-              margin: `${image ? "-28px" : "16px"} auto 0`,
-              position: "relative",
-              width: "56px",
-              height: "56px",
-            }}
-          />
-        )}
-        <CardContent>
-          {tags !== undefined && tags.length > 0 && (
-            <Box marginTop={0.8} marginBottom={2.4}>
-              {tags.map(({ key, tag }) => (
-                <Chip
-                  key={key}
-                  size="small"
-                  label={tag}
-                  style={{
-                    marginBottom: theme.spacing(0.3),
-                    marginRight: theme.spacing(0.3),
-                    cursor: "pointer",
-                  }}
-                />
-              ))}
-            </Box>
-          )}
-          {date !== undefined && (
-            <Box>
-              <Typography
-                variant="caption"
-                component="time"
-                dateTime={date.toISOString()}
-              >
-                {dateText || date.toLocaleString()}
-              </Typography>
-            </Box>
-          )}
-          {title && (
-            <Box marginBottom={subtitle ? 0.4 : undefined}>
-              <Typography
-                variant="h6"
-                component="span"
+    <CardActionArea component={"href" in props ? "a" : "button"}>
+      {image && (
+        <CardMedia
+          image={image}
+          title={title}
+          style={{
+            height: "140px",
+          }}
+        />
+      )}
+      {authorPicture && (
+        <Avatar
+          alt={authorName ?? ""}
+          src={authorPicture}
+          style={{
+            margin: `${image ? "-28px" : "16px"} auto 0`,
+            position: "relative",
+            width: "56px",
+            height: "56px",
+          }}
+        />
+      )}
+      <CardContent>
+        {tags !== undefined && tags.length > 0 && (
+          <Box marginTop={0.8} marginBottom={2.4}>
+            {tags.map(({ key, tag }) => (
+              <Chip
+                key={key}
+                size="small"
+                label={tag}
                 style={{
-                  lineHeight: "1.3",
-                  color: titleColor || theme.palette.primary.main,
+                  marginBottom: theme.spacing(0.3),
+                  marginRight: theme.spacing(0.3),
+                  cursor: "pointer",
                 }}
-              >
-                {title}
-              </Typography>
-            </Box>
-          )}
-          {subtitle && (
-            <Box>
-              <Typography
-                variant="body2"
-                color="textSecondary"
-                component="span"
-              >
-                {subtitle}
-              </Typography>
-            </Box>
-          )}
-        </CardContent>
-        {(likes !== undefined ||
-          views !== undefined ||
-          comments !== undefined) && (
-          <Box display="flex" paddingY={1.6}>
-            {likes !== undefined && (
-              <CardInfo
-                amount={likes}
-                Icon={FavoriteIcon}
-                ariaLabel={likesAriaLabel}
               />
-            )}
-            {views !== undefined && (
-              <CardInfo
-                amount={views}
-                Icon={VisibilityIcon}
-                ariaLabel={viewsAriaLabel}
-              />
-            )}
-            {comments !== undefined && (
-              <CardInfo
-                amount={comments}
-                Icon={ModeCommentIcon}
-                ariaLabel={commentsAriaLabel}
-              />
-            )}
+            ))}
           </Box>
         )}
-      </CardActionArea>
-    </Card>
+        {date !== undefined && (
+          <Box>
+            <Typography
+              variant="caption"
+              component="time"
+              dateTime={date.toISOString()}
+            >
+              {dateText || date.toLocaleString()}
+            </Typography>
+          </Box>
+        )}
+        {title && (
+          <Box marginBottom={subtitle ? 0.4 : undefined}>
+            <Typography
+              variant="h6"
+              component="span"
+              style={{
+                lineHeight: "1.3",
+                color: titleColor || theme.palette.primary.main,
+              }}
+            >
+              {title}
+            </Typography>
+          </Box>
+        )}
+        {subtitle && (
+          <Box>
+            <Typography variant="body2" color="textSecondary" component="span">
+              {subtitle}
+            </Typography>
+          </Box>
+        )}
+      </CardContent>
+      {(likes !== undefined ||
+        views !== undefined ||
+        comments !== undefined) && (
+        <Box display="flex" paddingY={1.6}>
+          {likes !== undefined && (
+            <CardInfo
+              amount={likes}
+              Icon={FavoriteIcon}
+              ariaLabel={likesAriaLabel}
+            />
+          )}
+          {views !== undefined && (
+            <CardInfo
+              amount={views}
+              Icon={VisibilityIcon}
+              ariaLabel={viewsAriaLabel}
+            />
+          )}
+          {comments !== undefined && (
+            <CardInfo
+              amount={comments}
+              Icon={ModeCommentIcon}
+              ariaLabel={commentsAriaLabel}
+            />
+          )}
+        </Box>
+      )}
+    </CardActionArea>
   );
 
-  if ("href" in props) {
-    return (
-      <Box>
+  return (
+    <Card
+      elevation={elevation}
+      onClick={() => ("onClick" in props ? props.onClick() : undefined)}
+    >
+      {"href" in props ? (
         <Link href={props.href} passHref>
-          <a
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            {postCard}
-          </a>
+          {postCard}
         </Link>
-      </Box>
-    );
-  } else {
-    return <Box>{postCard}</Box>;
-  }
+      ) : (
+        postCard
+      )}
+    </Card>
+  );
 }
 
 function CardInfo({

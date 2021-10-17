@@ -1,6 +1,7 @@
 import React from "react";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import { SvgIconTypeMap } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -130,7 +131,8 @@ export function SocialIcons(props: SocialIconsProps) {
         .filter(([icon]) => socialIcons[icon])
         .map(([icon, Icon, color, getHref, name], index) => (
           <Box marginLeft={index && 1.6} display="inline-flex" key={name}>
-            <a
+            <IconButton
+              component="a"
               href={
                 typeof socialIcons[icon] === "string"
                   ? getHref(socialIcons[icon] as string)
@@ -143,6 +145,9 @@ export function SocialIcons(props: SocialIconsProps) {
                   : "nofollow"
               } noopener noreferrer`}
               title={`${socialAnchorTitle} ${name}`}
+              style={{
+                padding: 0,
+              }}
             >
               <Icon
                 style={{
@@ -151,7 +156,7 @@ export function SocialIcons(props: SocialIconsProps) {
                 }}
                 fontSize={fontSize}
               />
-            </a>
+            </IconButton>
           </Box>
         ))}
     </Box>

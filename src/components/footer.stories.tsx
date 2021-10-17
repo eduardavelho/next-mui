@@ -37,7 +37,13 @@ export const Usage = () => {
           ),
           href: "/",
         },
-        { key: 3, label: "Link C", href: "/" },
+        {
+          key: 3,
+          label: "Link C",
+          onClick() {
+            alert("Click");
+          },
+        },
         { key: 4, label: "Link D", href: "/" },
         { key: 5, label: "Link E", href: "/" },
         { key: 6, label: "Link F", href: "/" },

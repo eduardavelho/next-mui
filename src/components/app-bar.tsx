@@ -107,26 +107,25 @@ export function AppBar({
             </a>
           </Link>
           <Hidden smDown>
-            <nav>
-              <Tabs value={false} arial-label={itemsAriaLabel} component="nav">
-                {items.map((item) =>
-                  "href" in item ? (
-                    <Link href={item.href} passHref key={item.key}>
-                      <Tab label={item.label} component="a" />
-                    </Link>
-                  ) : (
-                    <Tab
-                      key={item.key}
-                      label={item.label}
-                      onClick={item.onClick}
-                      style={{
-                        cursor: "pointer",
-                      }}
-                    />
-                  )
-                )}
-              </Tabs>
-            </nav>
+            <Tabs value={false} arial-label={itemsAriaLabel} component="nav">
+              {items.map((item) =>
+                "href" in item ? (
+                  <Link href={item.href} passHref key={item.key}>
+                    <Tab label={item.label} component="a" tabIndex={0} />
+                  </Link>
+                ) : (
+                  <Tab
+                    key={item.key}
+                    label={item.label}
+                    onClick={item.onClick}
+                    tabIndex={0}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  />
+                )
+              )}
+            </Tabs>
           </Hidden>
           <Box
             display="flex"

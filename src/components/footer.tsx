@@ -38,10 +38,11 @@ export function Footer({
           {items.map((item) =>
             "href" in item ? (
               <Link href={item.href} passHref key={item.key}>
-                <Tab component="a" label={item.label} />
+                <Tab component="a" tabIndex={0} label={item.label} />
               </Link>
             ) : (
               <Tab
+                tabIndex={0}
                 key={item.key}
                 label={item.label}
                 onClick={item.onClick}
