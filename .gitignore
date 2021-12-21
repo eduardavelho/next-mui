@@ -12,6 +12,7 @@
 /components
 /typography
 /storybook-static
+/public
 
 logs
 pids

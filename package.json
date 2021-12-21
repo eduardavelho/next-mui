@@ -10,7 +10,11 @@
     "start-storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "serve-storybook": "serve storybook-static -l 6006",
-    "deploy-storybook": "gh-pages -d storybook-static"
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "copy-typography": "node ./scripts/copy-typography.js ./public ./typography"
+  },
+  "bin": {
+    "copy-typography": "./scripts/copy-typography.js"
   },
   "author": "egvelho",
   "license": "GPL-3.0",
