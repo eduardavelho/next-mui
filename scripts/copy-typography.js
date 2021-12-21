@@ -8,7 +8,7 @@ module.exports = { copyTypography };
 
 async function copyTypography({
   outPath = "public",
-  typographyFilesPath = "node_modules/@egvelho/next-mui/typography",
+  typographyPath = "node_modules/@egvelho/next-mui/typography",
 } = {}) {
   console.log("Copying typography files...");
 
@@ -17,15 +17,17 @@ async function copyTypography({
     await fs.mkdir(outPath);
   }
 
-  const files = await (await fs.readdir(typographyFilesPath)).filter(
+  const files = await (await fs.readdir(typographyPath)).filter(
     (file) => file.endsWith(".woff") || file.endsWith(".woff2")
   );
 
   await Promise.all(
-    files.map((file) => {
-      const fileName = path.basename(file);
-      console.log(`Copying "${fileName}" to "${outPath}" folder...`);
-      return fs.writeFile(file, path.join(outPath, fileName));
+    files.map(async (file) => {
+      console.log(`Copying "${file}" to "${outPath}" folder...`);
+      return await fs.copyFile(
+        path.join(typographyPath, file),
+        path.join(outPath, file)
+      );
     })
   );
 
@@ -33,14 +35,14 @@ async function copyTypography({
 }
 
 if (require.main === module) {
-  const [outPath, typographyFilesPath] = process.argv.slice(2);
+  const [outPath, typographyPath] = process.argv.slice(2);
 
   if (!outPath) {
     console.log("Error: you must provide the argument for output path.");
     console.log("Example: copy-typography path/to/out/folder");
   } else {
-    if (typographyFilesPath) {
-      copyTypography({ outPath, typographyFilesPath });
+    if (typographyPath) {
+      copyTypography({ outPath, typographyPath });
     } else {
       copyTypography({ outPath });
     }

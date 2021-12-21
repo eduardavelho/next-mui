@@ -1,6 +1,6 @@
 {
   "name": "@egvelho/next-mui",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Material UI components for Next.js",
   "main": "index.js",
   "scripts": {
