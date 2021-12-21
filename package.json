@@ -1,10 +1,10 @@
 {
   "name": "@egvelho/next-mui",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Material UI components for Next.js",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --build tsconfig.build.json && cp -rf src/typography typography",
+    "build": "tsc --build tsconfig.build.json && cp -rf src/typography/*.woff* typography",
     "clean-project": "node scripts/clean-project",
     "typecheck": "tsc",
     "start-storybook": "start-storybook -p 6006",
