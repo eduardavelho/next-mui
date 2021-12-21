@@ -19,6 +19,7 @@ export const Usage = () => {
     <Dash
       appBarBackgroundColor="red"
       appBarItemsAriaLabel="Items"
+      appBarIcons={[]}
       appBarColor="yellow"
       drawerButtonAriaLabel="Drawer button"
       logo="https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg"
