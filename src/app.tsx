@@ -2,16 +2,13 @@ import React, { ReactNode } from "react";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { CssTypography } from "./typography/css-typography";
 import type { Theme } from "./types";
 
 export function app({
   theme,
-  fontsPath,
   Layout,
 }: {
   theme: Theme;
-  fontsPath: string;
   Layout: ({ children }: { children: ReactNode }) => JSX.Element;
 }) {
   return function App({ Component, pageProps }: AppProps) {
@@ -25,7 +22,6 @@ export function app({
     return (
       <>
         <ThemeProvider theme={theme}>
-          <CssTypography fontsPath={fontsPath} />
           <CssBaseline />
           <Layout>
             <Component {...pageProps} />
