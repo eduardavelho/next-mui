@@ -12,6 +12,7 @@ export const Usage = () => {
     <PostPage
       titleColor="red"
       socialAnchorTitle="Anchor title"
+      socialIconsText="Share in"
       email="email@email.email"
       facebook
       instagram="https://instagram.com/teste"

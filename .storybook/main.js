@@ -5,5 +5,4 @@ module.exports = {
     "@storybook/addon-essentials",
     "storybook-addon-material-ui",
   ],
-  staticDirs: ["../public", "../src/typography"],
 };

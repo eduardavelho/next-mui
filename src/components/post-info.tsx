@@ -21,6 +21,7 @@ export type PostInfoProps = {
   tags?: { key: React.Key; tag: string }[];
   titleColor?: string;
   backgroundIsDark?: boolean;
+  socialIconsText?: React.ReactNode;
 } & SocialIconsProps;
 
 export function PostInfo({
@@ -34,6 +35,7 @@ export function PostInfo({
   tags,
   titleColor,
   backgroundIsDark,
+  socialIconsText,
   ...socialIconsProps
 }: PostInfoProps) {
   const theme = useTheme();
@@ -150,10 +152,26 @@ export function PostInfo({
         {haveSocialIconsProps && (
           <Box
             display="flex"
+            flexDirection="column"
             justifyContent={isDesktop ? undefined : "center"}
             alignItems={isDesktop ? "center" : undefined}
             marginTop={isDesktop ? undefined : 3}
           >
+            {socialIconsText && (
+              <Box width="100%">
+                <Typography
+                  variant={"overline"}
+                  component="span"
+                  style={{
+                    color: backgroundIsDark
+                      ? "rgba(255, 255, 255, 0.8)"
+                      : undefined,
+                  }}
+                >
+                  {socialIconsText}
+                </Typography>
+              </Box>
+            )}
             <SocialIcons {...socialIconsProps} />
           </Box>
         )}

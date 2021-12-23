@@ -29,7 +29,10 @@ export function PostPage({
   };
 
   return (
-    <Page {...pageProps} header={<PostInfo {...postInfoProps} />}>
+    <Page
+      {...pageProps}
+      header={<PostInfo {...postInfoProps} backgroundIsDark />}
+    >
       <Box maxWidth="720px" marginX="auto">
         {children}
       </Box>
