@@ -30,6 +30,7 @@ export type PostCardProps = {
   views?: number;
   viewsAriaLabel?: string;
   elevation?: number | undefined;
+  backgroundColor?: string;
 } & ({ href: string } | { onClick: () => void });
 
 export function PostCard({
@@ -48,6 +49,7 @@ export function PostCard({
   authorPicture,
   tags,
   titleColor,
+  backgroundColor,
   elevation,
   ...props
 }: PostCardProps) {
@@ -160,6 +162,9 @@ export function PostCard({
     <Card
       elevation={elevation}
       onClick={() => ("onClick" in props ? props.onClick() : undefined)}
+      style={{
+        backgroundColor,
+      }}
     >
       {"href" in props ? (
         <Link href={props.href} passHref>
