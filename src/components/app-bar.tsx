@@ -27,7 +27,7 @@ type Icon = { key: React.Key; Icon: React.ElementType; ariaLabel: string } & (
 export interface AppBarProps {
   backgroundColor?: string;
   color?: string;
-  shortName: string;
+  shortName?: string;
   logo: string;
   logoWidth?: number;
   logoHeight?: number;
@@ -81,7 +81,7 @@ export function AppBar({
               }}
             >
               <Box
-                marginRight={1.5}
+                marginRight={shortName ? 1.5 : 3}
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
@@ -99,11 +99,13 @@ export function AppBar({
                   }}
                 />
               </Box>
-              <Box marginRight={isMobile ? undefined : 3}>
-                <Typography variant="subtitle1" component="span">
-                  {shortName}
-                </Typography>
-              </Box>
+              {shortName && (
+                <Box marginRight={isMobile ? undefined : 3}>
+                  <Typography variant="subtitle1" component="span">
+                    {shortName}
+                  </Typography>
+                </Box>
+              )}
             </a>
           </Link>
           <Hidden smDown>

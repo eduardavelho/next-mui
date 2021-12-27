@@ -19,6 +19,7 @@ export type SocialCardProps = {
   picture?: string;
   tags?: { key: React.Key; tag: string }[];
   elevation?: number;
+  backgroundColor?: string;
 } & SocialIconsProps;
 
 export function SocialCard({
@@ -28,6 +29,7 @@ export function SocialCard({
   about,
   picture,
   tags,
+  backgroundColor,
   elevation,
   ...socialIconsProps
 }: SocialCardProps) {
@@ -35,7 +37,12 @@ export function SocialCard({
   const haveSocialIconsProps = Object.keys(socialIconsProps).length > 0;
 
   return (
-    <Card elevation={elevation}>
+    <Card
+      elevation={elevation}
+      style={{
+        backgroundColor,
+      }}
+    >
       <CardContent
         style={{
           padding: "16px",

@@ -88,7 +88,7 @@ export interface SocialIconsProps {
   smallIcons?: boolean;
   largeIcons?: boolean;
   iconsInheritFontSize?: boolean;
-  socialAnchorTitle: string;
+  socialAnchorTitle?: string;
   isMe?: boolean;
   lightIcons?: boolean;
   darkIcons?: boolean;
@@ -144,7 +144,7 @@ export function SocialIcons(props: SocialIconsProps) {
                   ? "me"
                   : "nofollow"
               } noopener noreferrer`}
-              title={`${socialAnchorTitle} ${name}`}
+              title={socialAnchorTitle ? `${socialAnchorTitle} ${name}` : name}
               style={{
                 padding: 0,
               }}

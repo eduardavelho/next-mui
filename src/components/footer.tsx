@@ -1,25 +1,31 @@
 import React from "react";
+import Link from "next/link";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Link from "next/link";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import { SocialIcons, SocialIconsProps } from "./social-icons";
 
 type Item = { key: React.Key; label: React.ReactNode } & (
   | { href: string }
   | { onClick: () => void }
 );
 
-export interface FooterProps {
+export type FooterProps = {
   backgroundColor: string;
   color: string;
   itemsAriaLabel: string;
   items: Item[];
-}
+  socialIconsText?: string;
+} & SocialIconsProps;
 
 export function Footer({
   backgroundColor,
   color,
   itemsAriaLabel,
   items,
+  socialIconsText,
+  ...socialIconsProps
 }: FooterProps) {
   return (
     <footer
@@ -28,6 +34,21 @@ export function Footer({
         color,
       }}
     >
+      {Object.keys(socialIconsProps).length > 0 && (
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          paddingY={4}
+        >
+          {socialIconsText && (
+            <Typography component="span" variant="overline">
+              {socialIconsText}
+            </Typography>
+          )}
+          <SocialIcons {...socialIconsProps} />
+        </Box>
+      )}
       <nav>
         <Tabs
           variant="scrollable"

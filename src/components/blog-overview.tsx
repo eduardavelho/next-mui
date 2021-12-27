@@ -1,15 +1,15 @@
 import React from "react";
-import Link from "next/link";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { MasonryGrid } from "./masonry-grid";
-import { PostCard, PostCardProps } from "./post-card";
+import { PostCard } from "./post-card";
 import { PostList, PostListProps } from "./post-list";
 
 export interface BlogOverviewProps {
+  titleColor?: string;
   cardsTitleOverlineText?: string;
   cardsTitle?: string;
   listTitleOverlineText?: string;
@@ -22,6 +22,7 @@ export interface BlogOverviewProps {
 }
 
 export function BlogOverview({
+  titleColor,
   cardsTitle,
   cardsTitleOverlineText,
   listTitle,
@@ -55,7 +56,7 @@ export function BlogOverview({
                   {cardsTitleOverlineText}
                 </Typography>
               )}
-              <Typography variant={isDesktop ? "h3" : "h4"} component="h2">
+              <Typography variant={isDesktop ? "h3" : "h5"} component="h2">
                 {cardsTitle}
               </Typography>
             </Box>
@@ -65,13 +66,13 @@ export function BlogOverview({
               <PostCard
                 {...card}
                 elevation={0}
-                titleColor="inherit"
+                titleColor={titleColor}
                 backgroundColor="initial"
               />
             ))}
           </MasonryGrid>
         </Box>
-        <Box marginTop={4}>
+        <Box marginTop={8}>
           {listTitle && (
             <Box marginBottom={4}>
               {listTitleOverlineText && (
@@ -79,16 +80,24 @@ export function BlogOverview({
                   {listTitleOverlineText}
                 </Typography>
               )}
-              <Typography variant={isDesktop ? "h3" : "h4"} component="h2">
+              <Typography variant={isDesktop ? "h3" : "h5"} component="h2">
                 {listTitle}
               </Typography>
             </Box>
           )}
-          <PostList items={list} />
+          <PostList items={list} titleColor={titleColor} />
         </Box>
         {blogHref && blogHrefButtonLabel && (
           <Box marginTop={8}>
-            <Button variant="contained" size="large" fullWidth disableElevation>
+            <Button
+              variant="outlined"
+              size="large"
+              fullWidth
+              disableElevation
+              style={{
+                color: titleColor || theme.palette.primary.main,
+              }}
+            >
               {blogHrefButtonLabel}
             </Button>
           </Box>

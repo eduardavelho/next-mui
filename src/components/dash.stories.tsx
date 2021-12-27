@@ -65,6 +65,17 @@ export const Usage = () => {
       snackbarContent={snackbarContent}
       footerBackgroundColor="green"
       footerColor="red"
+      footerSocialIconsText="Siga nas redes sociais"
+      socialAnchorTitle="Ver em"
+      facebook
+      smallIcons
+      instagram="tes"
+      whatsApp="tes"
+      lattes="tes"
+      twitter
+      gitHub="tes"
+      email="tes"
+      linkedIn
     >
       <div>Content goes here</div>
     </Dash>

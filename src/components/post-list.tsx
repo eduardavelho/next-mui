@@ -7,7 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 
 export interface PostListProps {
-  items: (Omit<PostListItemProps, "showDivider"> & { key: React.Key })[];
+  items: (Omit<PostListItemProps, "showDivider" | "titleColor"> & {
+    key: React.Key;
+  })[];
+  titleColor?: string;
 }
 
 interface PostListItemProps {
@@ -17,13 +20,18 @@ interface PostListItemProps {
   dateText?: React.ReactNode;
   image?: string;
   showDivider: boolean;
+  titleColor?: string;
 }
 
-export function PostList({ items }: PostListProps) {
+export function PostList({ items, titleColor }: PostListProps) {
   return (
     <Box>
       {items.map((item, index) => (
-        <PostListItem {...item} showDivider={index > 0} />
+        <PostListItem
+          {...item}
+          showDivider={index > 0}
+          titleColor={titleColor}
+        />
       ))}
     </Box>
   );
@@ -36,6 +44,7 @@ function PostListItem({
   dateText,
   image,
   showDivider,
+  titleColor,
 }: PostListItemProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
@@ -51,7 +60,8 @@ function PostListItem({
             display="flex"
             flexDirection="row"
             alignItems="center"
-            marginY={3}
+            marginBottom={3}
+            marginTop={showDivider ? 3 : undefined}
             style={{
               textDecoration: "none",
               color: "inherit",
@@ -71,7 +81,13 @@ function PostListItem({
                   )}
                 </Typography>
               )}
-              <Typography component="h3" variant={isDesktop ? "h4" : "h5"}>
+              <Typography
+                component="h3"
+                variant={isDesktop ? "h5" : "h6"}
+                style={{
+                  color: titleColor || theme.palette.primary.main,
+                }}
+              >
                 {title}
               </Typography>
             </Box>
@@ -82,8 +98,8 @@ function PostListItem({
                     backgroundImage: `url(${image})`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
-                    width: "188px",
-                    height: "105.75px",
+                    width: "164px",
+                    height: "96px",
                     margin: 0,
                   }}
                 />

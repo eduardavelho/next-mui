@@ -10,7 +10,28 @@ export default {
 export const Usage = () => {
   return (
     <Footer
+      socialIconsText="Siga nas redes sociais"
+      socialAnchorTitle="Ver em"
+      facebook
+      smallIcons
+      instagram="tes"
+      whatsApp="tes"
+      lattes="tes"
+      twitter
+      gitHub="tes"
+      email="tes"
+      linkedIn
       items={[
+        {
+          key: 3,
+          label: "Link C",
+          onClick() {
+            alert("Click");
+          },
+        },
+        { key: 4, label: "Link D", href: "/" },
+        { key: 5, label: "Link E", href: "/" },
+        { key: 6, label: "Link F", href: "/" },
         {
           key: 1,
           label: (
@@ -37,20 +58,10 @@ export const Usage = () => {
           ),
           href: "/",
         },
-        {
-          key: 3,
-          label: "Link C",
-          onClick() {
-            alert("Click");
-          },
-        },
-        { key: 4, label: "Link D", href: "/" },
-        { key: 5, label: "Link E", href: "/" },
-        { key: 6, label: "Link F", href: "/" },
       ]}
       itemsAriaLabel="Footer items"
-      backgroundColor="red"
-      color="blue"
+      backgroundColor="#0A0310"
+      color="#F44321"
     />
   );
 };

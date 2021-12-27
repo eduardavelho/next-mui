@@ -12,9 +12,9 @@ export const Usage = () => {
     <BlogOverview
       blogHref="/"
       blogHrefButtonLabel="See all the publications"
-      cardsTitle="Title goes here"
+      cardsTitle={`Últimas publicações em "JavaScript"`}
       cardsTitleOverlineText="Featured"
-      listTitle="Another title bites the dust"
+      listTitle="Publicações mais recentes do site"
       listTitleOverlineText="The lastest"
       list={new Array(5).fill(undefined).map((_, key) => ({
         key,

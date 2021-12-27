@@ -5,8 +5,9 @@ import { BottomNavigation, BottomNavigationProps } from "./bottom-navigation";
 import { Drawer, DrawerProps } from "./drawer";
 import { Footer, FooterProps } from "./footer";
 import { Snackbar, SnackbarProps } from "./snackbar";
+import type { SocialIconsProps } from "./social-icons";
 
-export interface DashProps {
+export type DashProps = {
   children: React.ReactNode;
   appBarBackgroundColor: AppBarProps["backgroundColor"];
   appBarColor: AppBarProps["color"];
@@ -27,10 +28,11 @@ export interface DashProps {
   footerItems: FooterProps["items"];
   footerBackgroundColor: FooterProps["backgroundColor"];
   footerColor: FooterProps["color"];
+  footerSocialIconsText?: FooterProps["socialIconsText"];
   bottomNavigationItems: BottomNavigationProps["items"];
   snackbarContent: SnackbarProps["content"];
   setSnackbarContent: SnackbarProps["setContent"];
-}
+} & SocialIconsProps;
 
 export function Dash({
   appBarBackgroundColor,
@@ -52,10 +54,12 @@ export function Dash({
   footerItems,
   footerColor,
   footerBackgroundColor,
+  footerSocialIconsText,
   bottomNavigationItems,
   snackbarContent,
   setSnackbarContent,
   children,
+  ...socialIconsProps
 }: DashProps) {
   return (
     <>
@@ -81,10 +85,12 @@ export function Dash({
       />
       <main>{children}</main>
       <Footer
+        socialIconsText={footerSocialIconsText}
         itemsAriaLabel={footerItemsAriaLabel}
         items={footerItems}
         color={footerColor}
         backgroundColor={footerBackgroundColor}
+        {...socialIconsProps}
       />
       <Hidden smUp>
         <BottomNavigation items={bottomNavigationItems} />

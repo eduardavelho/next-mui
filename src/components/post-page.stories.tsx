@@ -13,6 +13,7 @@ export const Usage = () => {
       titleColor="red"
       socialAnchorTitle="Anchor title"
       socialIconsText="Share in"
+      tagsText="Publicado em"
       email="email@email.email"
       facebook
       instagram="https://instagram.com/teste"
@@ -28,17 +29,26 @@ export const Usage = () => {
       dateText="15, may, 2021"
       description="Description here"
       largeIcons
-      tags={[
-        { key: 1, tag: "Tag A" },
-        { key: 2, tag: "Tag B" },
-        { key: 3, tag: "Tag C" },
-      ]}
       background="#000"
-      paper
       breadcrumbs={[
         { key: 1, label: "Link A", href: "/" },
         { key: 2, label: "Link B", href: "/" },
       ]}
+      tags={[
+        { tag: "JavaScript", key: "teste-1", href: "/teste-1" },
+        { tag: "Text mining", key: "teste-2", href: "/teste-2" },
+        { tag: "Grupos de ódio", key: "teste-3", href: "/teste-3" },
+      ]}
+      recommendedPosts={new Array(5).fill(undefined).map((_, key) => ({
+        key,
+        title:
+          "Some long text here to show how the layout is handled for this use case",
+        href: "/",
+        date: new Date(),
+        dateText: new Date().toLocaleDateString(),
+        image:
+          "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg",
+      }))}
     >
       <div>
         <h1>Latio telo Cupido</h1>
