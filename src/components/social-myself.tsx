@@ -1,8 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 import { SocialCard, SocialCardProps } from "./social-card";
@@ -17,7 +15,6 @@ export function SocialMyself({
 }: SocialMyselfProps) {
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
-  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const backgroundIsDark = background
     ? isColor(background) && isColorDark(background)
     : isColorDark(backgroundFallback);
