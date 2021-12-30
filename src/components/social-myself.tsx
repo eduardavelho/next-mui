@@ -25,6 +25,8 @@ export function SocialMyself({
       paddingX={2}
       style={{
         background: background || backgroundFallback,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         color: backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : "inherit",
       }}
     >
@@ -33,7 +35,7 @@ export function SocialMyself({
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
-        maxWidth={960}
+        maxWidth={640}
         marginX="auto"
       >
         <SocialCard {...socialCardProps} />

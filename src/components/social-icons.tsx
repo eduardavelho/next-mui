@@ -26,36 +26,43 @@ const icons: [
   >,
   OverridableComponent<SvgIconTypeMap<{}, "svg">>,
   string,
-  (url: string) => string,
+  (url: string, isMe: boolean) => string,
   string
 ][] = [
   [
     "facebook",
     FacebookIcon,
     "#3b5999",
-    (url) => `https://www.facebook.com/sharer.php?u=${encodeURI(url)}`,
+    (url, isMe) =>
+      isMe ? url : `https://www.facebook.com/sharer.php?u=${encodeURI(url)}`,
     "Facebook",
   ],
   [
     "twitter",
     TwitterIcon,
     "#55acee",
-    (url) => `https://twitter.com/intent/tweet?url=${encodeURI(url)}`,
+    (url, isMe) =>
+      isMe ? url : `https://twitter.com/intent/tweet?url=${encodeURI(url)}`,
     "Twitter",
   ],
   [
     "whatsApp",
     WhatsAppIcon,
     "#25D366",
-    (url) => `https://wa.me/?text=${encodeURI(url)}`,
+    (url, isMe) =>
+      isMe ? `https://wa.me/${url}` : `https://wa.me/?text=${encodeURI(url)}`,
     "WhatsApp",
   ],
   [
     "linkedIn",
     LinkedInIcon,
     "#0077B5",
-    (url) =>
-      `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURI(url)}`,
+    (url, isMe) =>
+      isMe
+        ? url
+        : `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURI(
+            url
+          )}`,
     "LinkedIn",
   ],
   ["instagram", InstagramIcon, "#e4405f", (url) => url, "Instagram"],
@@ -135,8 +142,8 @@ export function SocialIcons(props: SocialIconsProps) {
               component="a"
               href={
                 typeof socialIcons[icon] === "string"
-                  ? getHref(socialIcons[icon] as string)
-                  : getHref(url)
+                  ? getHref(socialIcons[icon] as string, isMe ?? false)
+                  : getHref(url, false)
               }
               target="_blank"
               rel={`${

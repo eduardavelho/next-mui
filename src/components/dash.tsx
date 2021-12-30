@@ -11,7 +11,7 @@ export type DashProps = {
   children: React.ReactNode;
   appBarBackgroundColor: AppBarProps["backgroundColor"];
   appBarColor: AppBarProps["color"];
-  shortName: AppBarProps["shortName"];
+  shortName?: AppBarProps["shortName"];
   logo: AppBarProps["logo"];
   logoWidth?: AppBarProps["logoWidth"];
   logoHeight?: AppBarProps["logoHeight"];
