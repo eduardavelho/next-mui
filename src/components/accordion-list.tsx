@@ -24,7 +24,7 @@ export function AccordionList({
   return (
     <Box>
       {items.map(({ header, content, key }) => (
-        <Accordion key={`${key}-accordion-list`}>
+        <Accordion key={`${key}-accordion-list-item`}>
           <AccordionSummary
             style={{
               paddingLeft: theme.spacing(2),

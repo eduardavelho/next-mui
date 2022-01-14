@@ -10,6 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { useTheme } from "@material-ui/core/styles";
 import { SocialIcons, SocialIconsProps } from "./social-icons";
+import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 export type SocialCardProps = {
   name: string;
@@ -34,7 +35,6 @@ export function SocialCard({
   ...socialIconsProps
 }: SocialCardProps) {
   const theme = useTheme();
-  const haveSocialIconsProps = Object.keys(socialIconsProps).length > 0;
 
   return (
     <Card
@@ -52,7 +52,7 @@ export function SocialCard({
           <Box>
             {tags.map(({ key, tag }) => (
               <Chip
-                key={`${key}-social-card`}
+                key={`${key}-social-card-tag`}
                 size="small"
                 label={tag}
                 style={{
@@ -85,7 +85,7 @@ export function SocialCard({
         <Box marginY={2}>
           <Typography variant="body2">{about}</Typography>
         </Box>
-        {haveSocialIconsProps && (
+        {haveSocialIconsProps(socialIconsProps) && (
           <Box display="flex" justifyContent="center" alignItems="center">
             <SocialIcons {...socialIconsProps} />
           </Box>

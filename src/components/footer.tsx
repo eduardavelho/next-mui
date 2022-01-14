@@ -5,6 +5,7 @@ import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { SocialIcons, SocialIconsProps } from "./social-icons";
+import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 type Item = { key: React.Key; label: React.ReactNode } & (
   | { href: string }
@@ -34,7 +35,7 @@ export function Footer({
         color,
       }}
     >
-      {Object.keys(socialIconsProps).length > 0 && (
+      {haveSocialIconsProps(socialIconsProps) && (
         <Box
           display="flex"
           flexDirection="column"
@@ -58,13 +59,13 @@ export function Footer({
         >
           {items.map((item) =>
             "href" in item ? (
-              <Link href={item.href} passHref key={`${item.key}-footer`}>
+              <Link href={item.href} passHref key={`${item.key}-footer-item`}>
                 <Tab component="a" tabIndex={0} label={item.label} />
               </Link>
             ) : (
               <Tab
                 tabIndex={0}
-                key={`${item.key}-footer`}
+                key={`${item.key}-footer-item`}
                 label={item.label}
                 onClick={item.onClick}
                 style={{

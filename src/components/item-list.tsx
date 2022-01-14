@@ -66,7 +66,7 @@ export function ItemList({
         )}
         {items.map(({ key, text, image }: Item, index) => (
           <Box
-            key={`${key}-item-list`}
+            key={`${key}-item-list-item`}
             marginBottom={items.length - 1 === index ? 0 : 8}
             width="100%"
           >

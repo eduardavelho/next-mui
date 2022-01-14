@@ -83,7 +83,7 @@ export function PostCard({
           <Box marginTop={0.8} marginBottom={2.4}>
             {tags.map(({ key, tag }) => (
               <Chip
-                key={`${key}-post-card`}
+                key={`${key}-post-card-tag`}
                 size="small"
                 label={tag}
                 style={{

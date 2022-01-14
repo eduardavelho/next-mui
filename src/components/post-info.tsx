@@ -9,6 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SocialIcons, SocialIconsProps } from "./social-icons";
+import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 export type PostInfoProps = {
   title?: React.ReactNode;
@@ -40,7 +41,6 @@ export function PostInfo({
 }: PostInfoProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
-  const haveSocialIconsProps = Object.keys(socialIconsProps).length > 0;
 
   return (
     <Box>
@@ -48,7 +48,7 @@ export function PostInfo({
         <Box marginBottom={isDesktop ? undefined : 2}>
           {tags.map(({ tag, key }) => (
             <Chip
-              key={`${key}-post-info`}
+              key={`${key}-post-info-tag`}
               size="small"
               label={tag}
               style={{
@@ -149,7 +149,7 @@ export function PostInfo({
             </ListItem>
           </Box>
         )}
-        {haveSocialIconsProps && (
+        {haveSocialIconsProps(socialIconsProps) && (
           <Box
             display="flex"
             flexDirection="column"

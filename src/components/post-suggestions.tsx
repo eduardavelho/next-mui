@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import { SocialIcons, SocialIconsProps } from "./social-icons";
 import { PostList, PostListProps } from "./post-list";
+import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 export type PostSuggestionsProps = {
   titleColor?: string;
@@ -27,7 +28,7 @@ export function PostSuggestions({
 
   return (
     <Box>
-      {Object.keys(socialIconsProps).length > 0 && (
+      {haveSocialIconsProps(socialIconsProps) && (
         <Box display="flex" flexDirection="column">
           {socialIconsText && (
             <Typography variant="overline" component="span">
@@ -46,7 +47,11 @@ export function PostSuggestions({
           )}
           <Box>
             {tags.map(({ tag, href, key }) => (
-              <NextLink href={href} passHref key={`${key}-post-suggestions`}>
+              <NextLink
+                href={href}
+                passHref
+                key={`${key}-post-suggestions-tag`}
+              >
                 <Chip
                   size="small"
                   component="a"

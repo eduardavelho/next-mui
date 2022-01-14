@@ -68,7 +68,7 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
     >
       {items.map(({ key, label, Icon, ...item }) =>
         "href" in item ? (
-          <Link href={item.href} passHref key={`${key}-bottom-navigation`}>
+          <Link href={item.href} passHref key={`${key}-bottom-navigation-item`}>
             <BottomNavigationAction
               component="a"
               value={item.href}

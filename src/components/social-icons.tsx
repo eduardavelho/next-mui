@@ -140,7 +140,7 @@ export function SocialIcons(props: SocialIconsProps) {
           <Box
             marginLeft={index && 1.6}
             display="inline-flex"
-            key={`${name}-social-icons`}
+            key={`${name}-social-icon`}
           >
             <IconButton
               component="a"

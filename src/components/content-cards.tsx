@@ -76,7 +76,7 @@ export function ContentCards({
           <MasonryGrid spacing={theme.spacing(2)} xs={2} md={2} lg={3} xl={3}>
             {cards.map(({ key, title, content, image, href }) => (
               <PostCard
-                key={`${key}-content-cards`}
+                key={`${key}-content-card`}
                 title={title}
                 subtitle={content}
                 image={image}
