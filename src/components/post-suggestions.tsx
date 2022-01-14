@@ -51,7 +51,7 @@ export function PostSuggestions({
                   size="small"
                   component="a"
                   label={tag}
-                  key={key}
+                  key={`${key}-post-suggestions`}
                   style={{
                     fontWeight: "bold",
                     marginBottom: theme.spacing(0.3),

@@ -28,7 +28,9 @@ export function InfiniteScrollGrid<Item extends { key: React.Key }>({
     >
       <MasonryGrid xl={3} spacing={theme.spacing(2)} {...gridProps}>
         {items.map((props) => (
-          <Box key={props.key}>{mapItemToComponent(props)}</Box>
+          <Box key={`${props.key}-infinite-scroll-grid`}>
+            {mapItemToComponent(props)}
+          </Box>
         ))}
       </MasonryGrid>
     </InfiniteScroll>

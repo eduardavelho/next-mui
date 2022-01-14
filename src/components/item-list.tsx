@@ -28,9 +28,10 @@ export function ItemList({
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
-  const backgroundIsDark = background
-    ? isColor(background) && isColorDark(background)
-    : isColorDark(backgroundFallback);
+  const backgroundIsDark =
+    background && isColor(background)
+      ? isColorDark(background)
+      : isColorDark(backgroundFallback);
 
   return (
     <Box
@@ -65,7 +66,7 @@ export function ItemList({
         )}
         {items.map(({ key, text, image }: Item, index) => (
           <Box
-            key={key}
+            key={`${key}-item-list`}
             marginBottom={items.length - 1 === index ? 0 : 8}
             width="100%"
           >

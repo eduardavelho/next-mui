@@ -15,9 +15,10 @@ export function SocialMyself({
 }: SocialMyselfProps) {
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
-  const backgroundIsDark = background
-    ? isColor(background) && isColorDark(background)
-    : isColorDark(backgroundFallback);
+  const backgroundIsDark =
+    background && isColor(background)
+      ? isColorDark(background)
+      : isColorDark(backgroundFallback);
 
   return (
     <Box

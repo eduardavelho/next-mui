@@ -40,7 +40,7 @@ export function Drawer({
         >
           {items.map(({ key, label, Icon, ...item }) =>
             "href" in item ? (
-              <Link href={item.href} passHref key={key}>
+              <Link href={item.href} passHref key={`${key}-drawer`}>
                 <ListItem
                   component={MuiLink}
                   color="inherit"

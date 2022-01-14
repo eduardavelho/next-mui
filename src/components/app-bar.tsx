@@ -112,12 +112,16 @@ export function AppBar({
             <Tabs value={false} arial-label={itemsAriaLabel} component="nav">
               {items.map((item) =>
                 "href" in item ? (
-                  <Link href={item.href} passHref key={item.key}>
+                  <Link
+                    href={item.href}
+                    passHref
+                    key={`${item.key}-app-bar-tags`}
+                  >
                     <Tab label={item.label} component="a" tabIndex={0} />
                   </Link>
                 ) : (
                   <Tab
-                    key={item.key}
+                    key={`${item.key}-app-bar-tags`}
                     label={item.label}
                     onClick={item.onClick}
                     tabIndex={0}
@@ -136,7 +140,7 @@ export function AppBar({
             alignItems="center"
           >
             {icons.map((item) => (
-              <Box key={item.key} marginRight={1.5}>
+              <Box key={`${item.key}-app-bar-icons`} marginRight={1.5}>
                 {"href" in item ? (
                   <Link href={item.href} passHref>
                     <IconButton

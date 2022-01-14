@@ -48,7 +48,7 @@ export function PostInfo({
         <Box marginBottom={isDesktop ? undefined : 2}>
           {tags.map(({ tag, key }) => (
             <Chip
-              key={key}
+              key={`${key}-post-info`}
               size="small"
               label={tag}
               style={{

@@ -15,7 +15,11 @@ export function AttachmentList({
   return (
     <Box flexWrap="wrap" display="flex" marginTop={2}>
       {items.map(({ title, href, key }) => (
-        <Box key={key} marginRight={0.5} marginBottom={0.5}>
+        <Box
+          key={`${key}-attachment-list`}
+          marginRight={0.5}
+          marginBottom={0.5}
+        >
           <Button
             variant="contained"
             color={itemColor}

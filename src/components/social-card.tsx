@@ -52,7 +52,7 @@ export function SocialCard({
           <Box>
             {tags.map(({ key, tag }) => (
               <Chip
-                key={key}
+                key={`${key}-social-card`}
                 size="small"
                 label={tag}
                 style={{

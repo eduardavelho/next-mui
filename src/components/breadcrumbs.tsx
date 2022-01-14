@@ -27,7 +27,7 @@ export function Breadcrumbs({ breadcrumbs }: BreadcrumbsProps) {
       separator={<NavigateNextIcon fontSize="small" />}
     >
       {breadcrumbs.map(({ key, label, href }) => (
-        <Link href={href} passHref key={key}>
+        <Link href={href} passHref key={`${key}-breadcrumbs`}>
           <MuiLink color="inherit">{label}</MuiLink>
         </Link>
       ))}

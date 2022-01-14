@@ -26,9 +26,10 @@ export function Page({
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
-  const backgroundIsDark = background
-    ? isColor(background) && isColorDark(background)
-    : isColorDark(backgroundFallback);
+  const backgroundIsDark =
+    background && isColor(background)
+      ? isColorDark(background)
+      : isColorDark(backgroundFallback);
 
   return (
     <>

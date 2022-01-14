@@ -7,9 +7,10 @@ import { Page, PageProps } from "./page";
 import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 
-export type PostPageProps = Omit<PostInfoProps, "backgroundIsDark"> &
-  PostSuggestionsProps &
-  Omit<PageProps, "header">;
+export type PostPageProps = Omit<
+  PostInfoProps & PostSuggestionsProps & PageProps,
+  "backgroundIsDark" | "header"
+>;
 
 export function PostPage({
   children,
@@ -31,9 +32,12 @@ export function PostPage({
   ...socialIconsProps
 }: PostPageProps) {
   const theme = useTheme();
-  const backgroundIsDark = background
-    ? isColor(background) && isColorDark(background)
-    : isColorDark(theme.palette.primary.main);
+  background && console.log(isColor(background), isColorDark(background));
+  const backgroundFallback = theme.palette.primary.main;
+  const backgroundIsDark =
+    background && isColor(background)
+      ? isColorDark(background)
+      : isColorDark(backgroundFallback);
 
   const pageProps = {
     background,
@@ -67,10 +71,7 @@ export function PostPage({
   };
 
   return (
-    <Page
-      {...pageProps}
-      header={<PostInfo {...postInfoProps} backgroundIsDark />}
-    >
+    <Page {...pageProps} header={<PostInfo {...postInfoProps} />}>
       <Box maxWidth="720px" marginX="auto">
         <Box>{children}</Box>
         <Box marginTop={3}>

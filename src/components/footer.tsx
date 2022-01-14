@@ -58,13 +58,13 @@ export function Footer({
         >
           {items.map((item) =>
             "href" in item ? (
-              <Link href={item.href} passHref key={item.key}>
+              <Link href={item.href} passHref key={`${item.key}-footer`}>
                 <Tab component="a" tabIndex={0} label={item.label} />
               </Link>
             ) : (
               <Tab
                 tabIndex={0}
-                key={item.key}
+                key={`${item.key}-footer`}
                 label={item.label}
                 onClick={item.onClick}
                 style={{

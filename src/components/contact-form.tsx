@@ -33,9 +33,10 @@ export function ContactForm({
 }: ContactFormProps) {
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
-  const backgroundIsDark = background
-    ? isColor(background) && isColorDark(background)
-    : isColorDark(backgroundFallback);
+  const backgroundIsDark =
+    background && isColor(background)
+      ? isColorDark(background)
+      : isColorDark(backgroundFallback);
 
   const styles = useStyles({ backgroundIsDark });
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
