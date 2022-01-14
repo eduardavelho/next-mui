@@ -46,12 +46,11 @@ export function PostSuggestions({
           )}
           <Box>
             {tags.map(({ tag, href, key }) => (
-              <NextLink href={href} passHref>
+              <NextLink href={href} passHref key={`${key}-post-suggestions`}>
                 <Chip
                   size="small"
                   component="a"
                   label={tag}
-                  key={`${key}-post-suggestions`}
                   style={{
                     fontWeight: "bold",
                     marginBottom: theme.spacing(0.3),
