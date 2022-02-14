@@ -24,6 +24,10 @@ export function SocialMyself({
     <Box
       paddingY={16}
       paddingX={2}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
       style={{
         background: background || backgroundFallback,
         backgroundSize: "cover",
