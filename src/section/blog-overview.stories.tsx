@@ -10,6 +10,7 @@ export default {
 export const Usage = () => {
   return (
     <BlogOverview
+      background="#000"
       blogHref="/"
       blogHrefButtonLabel="See all the publications"
       cardsTitle={`Últimas publicações em "JavaScript"`}

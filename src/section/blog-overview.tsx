@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 import { MasonryGrid } from "../components/masonry-grid";
 import { PostCard } from "../blog-page/post-card";
 import { PostList, PostListProps } from "../post-page/post-list";
+import { isColor } from "../utils/is-color";
+import { isColorDark } from "../utils/is-color-dark";
 
 export interface BlogOverviewProps {
   titleColor?: string;
@@ -37,6 +39,10 @@ export function BlogOverview({
 }: BlogOverviewProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const backgroundIsDark =
+    background && isColor(background) ? isColorDark(background) : false;
+
+  const color = backgroundIsDark ? theme.palette.common.white : undefined;
 
   return (
     <Box
@@ -49,6 +55,7 @@ export function BlogOverview({
       style={{
         backgroundSize: "cover",
         background,
+        color,
       }}
     >
       <Box maxWidth={960} marginX="auto">
