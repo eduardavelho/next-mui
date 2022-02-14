@@ -2,17 +2,17 @@ import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import { useTheme } from "@material-ui/core/styles";
-import { NoResults, NoResultsProps } from "./no-results";
 import { SearchHeader, SearchHeaderProps } from "./search-header";
 import { PostCardGrid, PostCardGridProps } from "./post-card-grid";
-import { Breadcrumbs, BreadcrumbsProps } from "./breadcrumbs";
+import { Breadcrumbs, BreadcrumbsProps } from "../page/breadcrumbs";
+import { NoResults, NoResultsProps } from "../components/no-results";
 
-export type BlogProps = SearchHeaderProps &
+export type BlogPageProps = SearchHeaderProps &
   PostCardGridProps &
   NoResultsProps &
   BreadcrumbsProps;
 
-export function Blog({
+export function BlogPage({
   title,
   titleColor,
   background,
@@ -29,7 +29,7 @@ export function Blog({
   noResultsText,
   noResultsDescription,
   breadcrumbs,
-}: BlogProps) {
+}: BlogPageProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 

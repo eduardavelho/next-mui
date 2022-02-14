@@ -1,11 +1,12 @@
 import React from "react";
 import NextLink from "next/link";
 import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
-import { SocialIcons, SocialIconsProps } from "./social-icons";
 import { PostList, PostListProps } from "./post-list";
+import { SocialIcons, SocialIconsProps } from "../components/social-icons";
 import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 export type PostSuggestionsProps = {
@@ -25,6 +26,7 @@ export function PostSuggestions({
   ...socialIconsProps
 }: PostSuggestionsProps) {
   const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
     <Box>
@@ -70,7 +72,7 @@ export function PostSuggestions({
         </Box>
       )}
       {recommendedPosts && recommendedPosts.length > 0 && (
-        <Box marginTop={3}>
+        <Box marginTop={isDesktop ? 9 : 6}>
           <PostList items={recommendedPosts} titleColor={titleColor} />
         </Box>
       )}

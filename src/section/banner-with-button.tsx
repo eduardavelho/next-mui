@@ -59,6 +59,7 @@ export function BannerWithButton({
     <Box
       style={{
         background: background || theme.palette.primary.main,
+        minHeight: "calc(100vh - 64px)",
       }}
     >
       <Box

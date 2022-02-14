@@ -17,6 +17,7 @@ export const Usage = () => {
 
   return (
     <Dash
+      backgroundColor="#F5f5f5"
       appBarBackgroundColor="red"
       appBarItemsAriaLabel="Items"
       appBarIcons={[]}

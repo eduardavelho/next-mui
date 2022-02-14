@@ -1,7 +1,6 @@
 import React from "react";
 import { useTheme } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Breadcrumbs, BreadcrumbsProps } from "./breadcrumbs";
 import { isColor } from "../utils/is-color";
@@ -12,8 +11,8 @@ export interface PageProps {
   children: React.ReactNode;
   breadcrumbs?: BreadcrumbsProps["breadcrumbs"];
   background?: string;
-  backgroundIsDark?: boolean;
-  paper?: boolean;
+  color?: string;
+  overHeader?: boolean;
 }
 
 export function Page({
@@ -21,7 +20,8 @@ export function Page({
   children,
   breadcrumbs,
   background,
-  paper = false,
+  color,
+  overHeader = false,
 }: PageProps) {
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
@@ -30,52 +30,48 @@ export function Page({
     background && isColor(background)
       ? isColorDark(background)
       : isColorDark(backgroundFallback);
+  const headerColor =
+    color || (backgroundIsDark ? theme.palette.common.white : undefined);
 
   return (
     <>
       <Box
         paddingTop={isDesktop ? 8 : 2}
-        paddingBottom={paper ? 24 : undefined}
+        paddingBottom={overHeader ? 24 : undefined}
         paddingX={{ xs: 2, sm: 2, md: 6 }}
         paddingLeft={{ md: 20 }}
-        color={backgroundIsDark ? theme.palette.common.white : undefined}
+        color={
+          color || (backgroundIsDark ? theme.palette.common.white : undefined)
+        }
         style={{ background: background || backgroundFallback }}
       >
         <Box maxWidth="960px">
-          <Box paddingBottom={paper ? undefined : isDesktop ? 8 : 2}>
+          <Box paddingBottom={overHeader ? undefined : isDesktop ? 8 : 2}>
             {header}
           </Box>
-          {!paper && breadcrumbs !== undefined && breadcrumbs.length && (
-            <Box
-              color={backgroundIsDark ? theme.palette.common.white : undefined}
-              paddingBottom={isDesktop ? 2 : 1}
-            >
+          {!overHeader && breadcrumbs !== undefined && breadcrumbs.length && (
+            <Box color={headerColor} paddingBottom={isDesktop ? 2 : 1}>
               <Breadcrumbs breadcrumbs={breadcrumbs} />
             </Box>
           )}
         </Box>
       </Box>
-      <Box bgcolor={paper ? undefined : theme.palette.common.white}>
+      <Box>
         <Box
           marginX={{ xs: 2, sm: 2, md: 6 }}
           marginLeft={{ md: 20 }}
-          marginTop={paper ? -20 : undefined}
+          marginTop={overHeader ? -20 : undefined}
           maxWidth="960px"
         >
-          {paper && breadcrumbs !== undefined && breadcrumbs.length && (
-            <Box
-              color={backgroundIsDark ? theme.palette.common.white : undefined}
-              marginBottom={1}
-            >
+          {overHeader && breadcrumbs !== undefined && breadcrumbs.length && (
+            <Box color={headerColor} marginBottom={1}>
               <Breadcrumbs breadcrumbs={breadcrumbs} />
             </Box>
           )}
           <Box minHeight="80vh">
-            {paper ? (
+            {overHeader ? (
               <Box marginBottom={isDesktop ? 6 : 2}>
-                <Paper elevation={6}>
-                  <Box>{children}</Box>
-                </Paper>
+                <Box>{children}</Box>
               </Box>
             ) : (
               <Box paddingY={isDesktop ? 6 : 2}>{children}</Box>

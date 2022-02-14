@@ -5,9 +5,10 @@ import { BottomNavigation, BottomNavigationProps } from "./bottom-navigation";
 import { Drawer, DrawerProps } from "./drawer";
 import { Footer, FooterProps } from "./footer";
 import { Snackbar, SnackbarProps } from "./snackbar";
-import type { SocialIconsProps } from "./social-icons";
+import type { SocialIconsProps } from "../components/social-icons";
 
 export type DashProps = {
+  backgroundColor: string;
   children: React.ReactNode;
   appBarBackgroundColor: AppBarProps["backgroundColor"];
   appBarColor: AppBarProps["color"];
@@ -35,6 +36,7 @@ export type DashProps = {
 } & SocialIconsProps;
 
 export function Dash({
+  backgroundColor,
   appBarBackgroundColor,
   appBarColor,
   logo,
@@ -83,7 +85,13 @@ export function Dash({
         drawerOpen={drawerOpen}
         setDrawerOpen={(drawerOpen) => setDrawerOpen(drawerOpen)}
       />
-      <main>{children}</main>
+      <main
+        style={{
+          backgroundColor,
+        }}
+      >
+        {children}
+      </main>
       <Footer
         socialIconsText={footerSocialIconsText}
         itemsAriaLabel={footerItemsAriaLabel}

@@ -1,15 +1,15 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { Blog } from "./blog";
+import { BlogPage } from "./blog-page";
 
 export default {
-  title: "Example/Blog",
-  component: Blog,
+  title: "Example/BlogPage",
+  component: BlogPage,
 } as Meta;
 
 export const Usage = () => {
   return (
-    <Blog
+    <BlogPage
       breadcrumbs={[
         { key: 1, label: "Link A", href: "/" },
         { key: 2, label: "Link B", href: "/" },

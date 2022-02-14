@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import { useTheme } from "@material-ui/core/styles";
 import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
-import { SocialCard, SocialCardProps } from "./social-card";
+import { SocialCard, SocialCardProps } from "../social-page/social-card";
 
 export type SocialMyselfProps = {
   background?: string;
@@ -29,6 +29,7 @@ export function SocialMyself({
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : "inherit",
+        minHeight: "calc(100vh - 64px)",
       }}
     >
       <Box

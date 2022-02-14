@@ -8,6 +8,13 @@
 /*.js
 /*.js.map
 
+/blog-page
+/dash
+/info-page
+/page
+/post-page
+/section
+/social-page
 /utils
 /components
 /typography

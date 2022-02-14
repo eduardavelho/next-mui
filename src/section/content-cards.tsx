@@ -4,13 +4,14 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { MasonryGrid } from "./masonry-grid";
-import { PostCard } from "./post-card";
+import { PostCard } from "../blog-page/post-card";
+import { MasonryGrid } from "../components/masonry-grid";
 
 export interface ContentCardsProps {
   title?: string;
   subtitle?: string;
   titleColor?: string;
+  background?: string;
   cards: CardItem[];
 }
 
@@ -26,6 +27,7 @@ export function ContentCards({
   title,
   subtitle,
   titleColor,
+  background,
   cards,
 }: ContentCardsProps) {
   const theme = useTheme();
@@ -42,6 +44,7 @@ export function ContentCards({
       alignItems="center"
       justifyContent="center"
       style={{
+        background,
         backgroundSize: "cover",
       }}
     >

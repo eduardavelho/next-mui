@@ -67,16 +67,24 @@ export function PostCard({
         />
       )}
       {authorPicture && (
-        <Avatar
-          alt={authorName ?? ""}
-          src={authorPicture}
+        <Box
           style={{
-            margin: `${image ? "-28px" : "16px"} auto 0`,
-            position: "relative",
-            width: "56px",
-            height: "56px",
+            paddingTop: image ? undefined : "16px",
           }}
-        />
+        >
+          <Avatar
+            alt={authorName ?? ""}
+            src={authorPicture}
+            style={{
+              marginTop: image ? "-28px" : undefined,
+              marginLeft: "auto",
+              marginRight: "auto",
+              position: "relative",
+              width: "56px",
+              height: "56px",
+            }}
+          />
+        </Box>
       )}
       <CardContent>
         {tags !== undefined && tags.length > 0 && (
@@ -110,7 +118,7 @@ export function PostCard({
           <Box marginBottom={subtitle ? 0.4 : undefined}>
             <Typography
               variant="h6"
-              component="span"
+              component="h6"
               style={{
                 lineHeight: "1.3",
                 color: titleColor || theme.palette.primary.main,

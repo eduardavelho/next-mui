@@ -8,7 +8,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { SocialIcons, SocialIconsProps } from "./social-icons";
+import { SocialIcons, SocialIconsProps } from "../components/social-icons";
 import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 export type PostInfoProps = {
@@ -152,27 +152,33 @@ export function PostInfo({
         {haveSocialIconsProps(socialIconsProps) && (
           <Box
             display="flex"
-            flexDirection="column"
             justifyContent={isDesktop ? undefined : "center"}
             alignItems={isDesktop ? "center" : undefined}
             marginTop={isDesktop ? undefined : 3}
           >
-            {socialIconsText && (
-              <Box width="100%">
-                <Typography
-                  variant={"overline"}
-                  component="span"
-                  style={{
-                    color: backgroundIsDark
-                      ? "rgba(255, 255, 255, 0.8)"
-                      : undefined,
-                  }}
-                >
-                  {socialIconsText}
-                </Typography>
-              </Box>
-            )}
-            <SocialIcons {...socialIconsProps} />
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              {socialIconsText && (
+                <Box width="100%">
+                  <Typography
+                    variant={"overline"}
+                    component="span"
+                    style={{
+                      color: backgroundIsDark
+                        ? "rgba(255, 255, 255, 0.8)"
+                        : undefined,
+                    }}
+                  >
+                    {socialIconsText}
+                  </Typography>
+                </Box>
+              )}
+              <SocialIcons {...socialIconsProps} />
+            </Box>
           </Box>
         )}
       </Box>

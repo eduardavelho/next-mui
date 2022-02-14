@@ -9,7 +9,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { useTheme } from "@material-ui/core/styles";
-import { SocialIcons, SocialIconsProps } from "./social-icons";
+import { SocialIcons, SocialIconsProps } from "../components/social-icons";
 import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 export type SocialCardProps = {
@@ -75,9 +75,12 @@ export function SocialCard({
           </ListItemAvatar>
           <ListItemText
             primary={
-              <span style={{ color: nameColor || theme.palette.primary.main }}>
+              <Typography
+                component="h6"
+                style={{ color: nameColor || theme.palette.primary.main }}
+              >
                 {name}
-              </span>
+              </Typography>
             }
             secondary={description}
           />

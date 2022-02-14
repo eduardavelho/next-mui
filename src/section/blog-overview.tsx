@@ -1,12 +1,13 @@
 import React from "react";
+import NextLink from "next/link";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { MasonryGrid } from "./masonry-grid";
-import { PostCard } from "./post-card";
-import { PostList, PostListProps } from "./post-list";
+import { MasonryGrid } from "../components/masonry-grid";
+import { PostCard } from "../blog-page/post-card";
+import { PostList, PostListProps } from "../post-page/post-list";
 
 export interface BlogOverviewProps {
   titleColor?: string;
@@ -15,6 +16,7 @@ export interface BlogOverviewProps {
   listTitleOverlineText?: string;
   listTitle?: string;
   color?: string;
+  background?: string;
   cards: PostListProps["items"];
   list: PostListProps["items"];
   blogHref?: string;
@@ -23,6 +25,7 @@ export interface BlogOverviewProps {
 
 export function BlogOverview({
   titleColor,
+  background,
   cardsTitle,
   cardsTitleOverlineText,
   listTitle,
@@ -45,6 +48,7 @@ export function BlogOverview({
       justifyContent="center"
       style={{
         backgroundSize: "cover",
+        background,
       }}
     >
       <Box maxWidth={960} marginX="auto">
@@ -89,17 +93,20 @@ export function BlogOverview({
         </Box>
         {blogHref && blogHrefButtonLabel && (
           <Box marginTop={8}>
-            <Button
-              variant="outlined"
-              size="large"
-              fullWidth
-              disableElevation
-              style={{
-                color: titleColor || theme.palette.primary.main,
-              }}
-            >
-              {blogHrefButtonLabel}
-            </Button>
+            <NextLink href={blogHref} passHref>
+              <Button
+                component="a"
+                variant="outlined"
+                size="large"
+                fullWidth
+                disableElevation
+                style={{
+                  color: titleColor || theme.palette.primary.main,
+                }}
+              >
+                {blogHrefButtonLabel}
+              </Button>
+            </NextLink>
           </Box>
         )}
       </Box>

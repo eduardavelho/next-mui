@@ -4,7 +4,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { SocialIcons, SocialIconsProps } from "./social-icons";
+import { SocialIcons, SocialIconsProps } from "../components/social-icons";
 import { haveSocialIconsProps } from "../utils/have-social-icons-props";
 
 type Item = { key: React.Key; label: React.ReactNode } & (

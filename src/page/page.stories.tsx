@@ -22,7 +22,7 @@ export const Paper = () => (
 
 export const NoPaper = () => (
   <Page
-    paper={false}
+    overHeader={false}
     header={<h1>Some header here</h1>}
     background="#000"
     breadcrumbs={[

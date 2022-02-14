@@ -40,6 +40,7 @@ export function Banner({
       style={{
         background: background || theme.palette.primary.main,
         backgroundSize: "cover",
+        minHeight: "calc(100vh - 64px)",
       }}
     >
       <Box maxWidth={960} marginX="auto">

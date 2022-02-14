@@ -3,19 +3,19 @@ import Box from "@material-ui/core/Box";
 import { useTheme } from "@material-ui/core/styles";
 import { PostInfo, PostInfoProps } from "./post-info";
 import { PostSuggestions, PostSuggestionsProps } from "./post-suggestions";
-import { Page, PageProps } from "./page";
+import { Page, PageProps } from "../page/page";
 import { isColor } from "../utils/is-color";
 import { isColorDark } from "../utils/is-color-dark";
 
 export type PostPageProps = Omit<
-  PostInfoProps & PostSuggestionsProps & PageProps,
-  "backgroundIsDark" | "header"
+  PostInfoProps & PostSuggestionsProps & Omit<PageProps, "color">,
+  "header"
 >;
 
 export function PostPage({
   children,
   background,
-  paper,
+  overHeader,
   breadcrumbs,
   title,
   description,
@@ -32,7 +32,6 @@ export function PostPage({
   ...socialIconsProps
 }: PostPageProps) {
   const theme = useTheme();
-  background && console.log(isColor(background), isColorDark(background));
   const backgroundFallback = theme.palette.primary.main;
   const backgroundIsDark =
     background && isColor(background)
@@ -41,7 +40,7 @@ export function PostPage({
 
   const pageProps = {
     background,
-    paper,
+    overHeader,
     breadcrumbs,
     backgroundIsDark,
   };

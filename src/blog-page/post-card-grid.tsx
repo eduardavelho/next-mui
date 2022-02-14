@@ -2,11 +2,11 @@ import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import { useTheme } from "@material-ui/core/styles";
+import { PostCard, PostCardProps } from "./post-card";
 import {
   InfiniteScrollGrid,
   InfiniteScrollGridProps,
-} from "./infinite-scroll-grid";
-import { PostCard, PostCardProps } from "./post-card";
+} from "../components/infinite-scroll-grid";
 
 type PostCard = PostCardProps & { key: React.Key };
 
