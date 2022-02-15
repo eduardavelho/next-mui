@@ -96,6 +96,7 @@ export function ContactForm({
             </Grid>
             <Grid item xs={12} md={7}>
               <TextField
+                type="email"
                 label={form.email.label}
                 value={form.email.value}
                 error={form.email.error}
@@ -113,6 +114,7 @@ export function ContactForm({
             </Grid>
             <Grid item xs={12} md={5}>
               <TextField
+                type="tel"
                 label={form.phoneNumber.label}
                 value={form.phoneNumber.value}
                 error={form.phoneNumber.error}
