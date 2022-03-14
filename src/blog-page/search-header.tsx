@@ -44,7 +44,7 @@ export function SearchHeader({
       ? isColorDark(background)
       : isColorDark(backgroundFallback);
 
-  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const searchClasses = searchStyles({ backgroundIsDark });
 
   return (

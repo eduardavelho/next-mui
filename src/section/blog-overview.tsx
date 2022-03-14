@@ -72,7 +72,7 @@ export function BlogOverview({
               </Typography>
             </Box>
           )}
-          <MasonryGrid spacing={theme.spacing(2)} xs={2} md={2} lg={3} xl={3}>
+          <MasonryGrid spacing={theme.spacing(2)} xs={2} md={3} lg={3} xl={3}>
             {cards.map((card) => (
               <PostCard
                 {...card}
