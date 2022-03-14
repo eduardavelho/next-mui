@@ -17,7 +17,6 @@ export const Usage = () => {
       email="email@email.email"
       facebook
       instagram="https://instagram.com/teste"
-      lattes="https://lattes.cnpq.br/teste"
       linkedIn
       twitter
       whatsApp
@@ -28,7 +27,7 @@ export const Usage = () => {
       date={new Date()}
       dateText="15, may, 2021"
       description="Description here"
-      largeIcons
+      smallIcons
       background="#000"
       breadcrumbs={[
         { key: 1, label: "Link A", href: "/" },

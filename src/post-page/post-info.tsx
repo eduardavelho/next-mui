@@ -152,9 +152,8 @@ export function PostInfo({
         {haveSocialIconsProps(socialIconsProps) && (
           <Box
             display="flex"
-            justifyContent={isDesktop ? undefined : "center"}
             alignItems={isDesktop ? "center" : undefined}
-            marginTop={isDesktop ? undefined : 3}
+            marginY={isDesktop ? undefined : 3}
           >
             <Box
               display="flex"

@@ -61,8 +61,14 @@ export function BlogPage({
   return (
     <>
       <SearchHeader {...searchHeaderProps} />
-      <Box maxWidth="960px" marginX={isDesktop ? "auto" : 1.6} marginY={1.6}>
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Box
+        maxWidth="960px"
+        marginX={isDesktop ? "auto" : undefined}
+        marginY={1.6}
+      >
+        <Box marginX={isDesktop ? undefined : 1.6}>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+        </Box>
         <Box minHeight="60vh">
           {posts.length > 0 ? (
             <PostCardGrid {...postCardGridProps} />
