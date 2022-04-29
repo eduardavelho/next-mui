@@ -1,6 +1,6 @@
 {
   "name": "@egvelho/next-mui",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "description": "Material UI components for Next.js",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,9 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
+    "@types/react-input-mask": "^3.0.1",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-input-mask": "^2.0.4",
     "react-masonry-css": "^1.0.16",
     "tslib": "^2.3.1"
   },
