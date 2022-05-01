@@ -10,12 +10,15 @@ import { NoResults, NoResultsProps } from "../components/no-results";
 export type BlogPageProps = SearchHeaderProps &
   PostCardGridProps &
   NoResultsProps &
-  BreadcrumbsProps;
+  BreadcrumbsProps & {
+    pageBackground?: string;
+  };
 
 export function BlogPage({
   title,
   titleColor,
   background,
+  pageBackground,
   options,
   value,
   placeholder,
@@ -59,7 +62,11 @@ export function BlogPage({
   };
 
   return (
-    <>
+    <Box
+      style={{
+        background: pageBackground,
+      }}
+    >
       <SearchHeader {...searchHeaderProps} />
       <Box
         maxWidth="960px"
@@ -79,6 +86,6 @@ export function BlogPage({
           )}
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

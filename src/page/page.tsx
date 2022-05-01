@@ -11,6 +11,7 @@ export interface PageProps {
   children: React.ReactNode;
   breadcrumbs?: BreadcrumbsProps["breadcrumbs"];
   background?: string;
+  pageBackground?: string;
   color?: string;
   overHeader?: boolean;
 }
@@ -20,6 +21,7 @@ export function Page({
   children,
   breadcrumbs,
   background,
+  pageBackground,
   color,
   overHeader = false,
 }: PageProps) {
@@ -56,7 +58,11 @@ export function Page({
           )}
         </Box>
       </Box>
-      <Box>
+      <Box
+        style={{
+          background: pageBackground,
+        }}
+      >
         <Box
           marginX={{ xs: 2, sm: 2, md: 6 }}
           marginLeft={{ md: 20 }}

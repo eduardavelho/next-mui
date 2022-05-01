@@ -14,6 +14,7 @@ export type PostPageProps = Omit<
 
 export function PostPage({
   children,
+  pageBackground,
   background,
   overHeader,
   breadcrumbs,
@@ -39,6 +40,7 @@ export function PostPage({
       : isColorDark(backgroundFallback);
 
   const pageProps = {
+    pageBackground,
     background,
     overHeader,
     breadcrumbs,
