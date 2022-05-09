@@ -2,32 +2,35 @@ import React from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 
-// Suportar autocomplete
-
-export interface RadioProps {
+export interface SelectProps {
   options: {
     label: string;
     value: string | number;
   }[];
   label: string;
+  placeholder: string;
   selected?: string | number;
   disabled?: boolean;
-  errorMessage?: string;
+  error?: boolean;
+  helperText?: string;
   onChange?: (selected: string | number | undefined) => Promise<void>;
 }
 
 export function Select({
   label,
+  placeholder,
   selected,
   disabled,
-  errorMessage,
+  error,
+  helperText,
   options,
   onChange,
-}: RadioProps) {
+}: SelectProps) {
   return (
     <TextField
-      error={errorMessage !== undefined}
-      helperText={errorMessage}
+      placeholder={placeholder}
+      error={error}
+      helperText={helperText}
       label={label}
       select
       fullWidth

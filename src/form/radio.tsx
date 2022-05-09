@@ -2,6 +2,7 @@ import React from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import MuiRadio from "@material-ui/core/Radio";
+import FormHelperText from "@material-ui/core/FormHelperText";
 
 export interface RadioProps {
   options: {
@@ -9,6 +10,8 @@ export interface RadioProps {
     value: string | number;
     disabled?: boolean;
   }[];
+  error?: boolean;
+  helperText?: string;
   checked?: string | number;
   disabled?: boolean;
   row?: boolean;
@@ -22,23 +25,30 @@ export function Radio({
   disabled,
   options,
   onChange,
+  error,
+  helperText,
   ariaLabelledBy,
 }: RadioProps) {
   return (
-    <RadioGroup
-      row={row}
-      aria-labelledby={ariaLabelledBy}
-      value={checked}
-      onChange={onChange && ((event) => onChange(event.target.value))}
-    >
-      {options.map((option) => (
-        <FormControlLabel
-          value={option.value}
-          disabled={option.disabled || disabled}
-          label={option.label}
-          control={<MuiRadio />}
-        />
-      ))}
-    </RadioGroup>
+    <>
+      <RadioGroup
+        row={row}
+        aria-labelledby={ariaLabelledBy}
+        value={checked}
+        onChange={onChange && ((event) => onChange(event.target.value))}
+      >
+        {options.map((option) => (
+          <FormControlLabel
+            value={option.value}
+            disabled={option.disabled || disabled}
+            label={option.label}
+            control={<MuiRadio />}
+          />
+        ))}
+      </RadioGroup>
+      {helperText && (
+        <FormHelperText error={error}>{helperText}</FormHelperText>
+      )}
+    </>
   );
 }

@@ -8,5 +8,18 @@ export default {
 } as Meta;
 
 export const Usage = () => {
-  return <div></div>;
+  const [number, setNumber] = React.useState("");
+
+  return (
+    <Text
+      type="tel"
+      label="Teste"
+      placeholder="teste"
+      value={number}
+      onChange={async (value) => {
+        value && setNumber(value);
+      }}
+      mask="(99) 99999-9999"
+    />
+  );
 };

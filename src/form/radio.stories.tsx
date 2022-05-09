@@ -10,6 +10,8 @@ export default {
 export const Usage = () => {
   return (
     <Radio
+      error
+      helperText="Deu erro aqui, cara"
       options={[
         {
           value: "red",
