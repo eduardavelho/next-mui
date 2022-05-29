@@ -109,6 +109,16 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         overflow: "auto",
         maxHeight: "60vh",
         background: "#272822",
+        counterReset: "line",
+      },
+      "& .hljs-line:before": {
+        counterIncrement: "line",
+        content: "counter(line)",
+        display: "inline-block",
+        marginRight: "1ch",
+        color: "#75715e",
+        textAlign: "right",
+        width: "2ch",
       },
       "& .hljs-attribute, & .hljs-doctag, & .hljs-keyword, & .hljs-meta .hljs-keyword, & .hljs-name, & .hljs-selector-tag": {
         fontWeight: "700",
