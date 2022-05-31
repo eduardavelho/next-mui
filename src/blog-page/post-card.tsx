@@ -130,7 +130,7 @@ export function PostCard({
         )}
         {subtitle && (
           <Box>
-            <Typography variant="body2" color="textSecondary" component="span">
+            <Typography variant="body2" color="textSecondary" component="p">
               {subtitle}
             </Typography>
           </Box>

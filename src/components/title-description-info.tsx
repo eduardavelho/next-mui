@@ -28,7 +28,7 @@ export function TitleDescriptionInfo({
       {description && (
         <Box marginTop={title ? 2 : undefined}>
           <Typography
-            component="h2"
+            component="p"
             variant={isDesktop ? "subtitle1" : "subtitle2"}
           >
             {description}

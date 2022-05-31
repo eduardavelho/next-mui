@@ -68,7 +68,7 @@ export function ContentCards({
             <Typography
               variant={isDesktop ? "h5" : "subtitle1"}
               align="center"
-              component="h3"
+              component="p"
               color="textPrimary"
             >
               {subtitle}

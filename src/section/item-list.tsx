@@ -58,7 +58,7 @@ export function ItemList({
             <Typography
               align="center"
               variant={isDesktop ? "h3" : "h4"}
-              component="h1"
+              component="h2"
             >
               {title}
             </Typography>

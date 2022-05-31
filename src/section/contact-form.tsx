@@ -63,7 +63,7 @@ export function ContactForm({
             <Typography
               align="center"
               variant={isDesktop ? "h3" : "h5"}
-              component="h1"
+              component="h2"
             >
               {title}
             </Typography>

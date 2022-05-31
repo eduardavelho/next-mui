@@ -73,7 +73,7 @@ export function Banner({
           <Box>
             <Typography
               variant={isDesktop ? "h4" : "h6"}
-              component="h2"
+              component="p"
               align="center"
               style={{
                 fontWeight: 300,
