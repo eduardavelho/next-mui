@@ -10,11 +10,15 @@ export default {
 export const Usage = () => (
   <PricingCard
     overlinePrice="Seja membro"
-    price="R$ 150,00"
-    promotionalPrice="R$ 120,00"
+    price="R$150,00"
+    promotionalPrice="R$120,00"
     priceDescription="ao mês"
-    features={[]}
-    descriptionText=""
+    features={[
+      "Programador e bolsista-pesquisador",
+      "doutorado financiado pelo Conselho",
+      "Nacional de Desenvolvimento Científico",
+    ]}
+    descriptionText="Programador e bolsista-pesquisador de doutorado financiado pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico do Brasil (CNPq)."
     subscribeLabel="Inscreva-se"
     subscribeHref="/"
   />

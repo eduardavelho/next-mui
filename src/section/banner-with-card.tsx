@@ -124,8 +124,6 @@ export function BannerWithCard({
                         variant="outlined"
                         color="inherit"
                         style={{
-                          borderWidth: "3px",
-                          borderRadius: "8px",
                           cursor: "pointer",
                         }}
                         fullWidth={showActionsInColumn}
