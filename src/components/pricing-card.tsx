@@ -18,7 +18,7 @@ export type PricingCardProps = {
   price: React.ReactNode;
   promotionalPrice?: React.ReactNode;
   priceDescription?: React.ReactNode;
-  features?: React.ReactNode[];
+  features?: { key: React.Key; content: React.ReactNode }[];
   descriptionText: React.ReactNode;
   subscribeLabel: string;
   elevation?: number;
@@ -86,7 +86,7 @@ export function PricingCard({
                       fontWeight: 800,
                     }}
                   >
-                    {price}
+                    {promotionalPrice}
                   </Typography>
                 )}
               </Box>
@@ -113,8 +113,8 @@ export function PricingCard({
           {features && features.length > 0 && (
             <Box>
               <List dense>
-                {features.map((feature) => (
-                  <ListItem disableGutters dense>
+                {features.map(({ key, content }) => (
+                  <ListItem disableGutters dense key={`pricing-feature-${key}`}>
                     <ListItemIcon
                       style={{
                         color: textColor,
@@ -122,7 +122,7 @@ export function PricingCard({
                     >
                       <CheckIcon color="inherit" fontSize="small" />
                     </ListItemIcon>
-                    <ListItemText primary={feature} />
+                    <ListItemText primary={content} />
                   </ListItem>
                 ))}
               </List>

@@ -14,6 +14,7 @@ export interface BannerWithCardProps {
   content: React.ReactNode;
   card: React.ReactNode;
   actions?: Action[];
+  bannerMinHeight?: string;
 }
 
 type Action = { key: React.Key; label: string } & (
@@ -29,6 +30,7 @@ export function BannerWithCard({
   content,
   actions,
   card,
+  bannerMinHeight = "calc(80vh - 64px)",
 }: BannerWithCardProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -56,7 +58,7 @@ export function BannerWithCard({
           flexDirection="column"
           justifyContent="center"
           width={isDesktop ? "600px" : "100%"}
-          minHeight={isDesktop ? "calc(80vh - 64px)" : undefined}
+          minHeight={isDesktop ? bannerMinHeight : undefined}
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
