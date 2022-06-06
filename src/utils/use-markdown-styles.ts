@@ -11,24 +11,24 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         marginBottom: 0,
       },
       "& p": {
-        fontSize: "18px",
+        fontSize: "1.2rem",
         fontFamily: "Roboto Slab",
         lineHeight: 1.8,
-        margin: "16px 0",
+        margin: `${theme.spacing(2)} 0`,
       },
       "& h1, & h2": {
-        fontSize: "32px",
-        margin: "20px 0",
+        fontSize: "2.2rem",
+        margin: `${theme.spacing(2.5)} 0`,
       },
       "& h3, & h4, & h5, & h6": {
-        fontSize: "24px",
-        margin: "16px 0",
+        fontSize: "1.8rem",
+        margin: `${theme.spacing(2)} 0`,
       },
       "& li": {
-        margin: "12px 0",
+        margin: `${theme.spacing(1.5)} 0`,
       },
       "& li, & dt, & dd": {
-        fontSize: "16px",
+        fontSize: "1.2rem",
         fontFamily: "Roboto Slab",
         lineHeight: 1.4,
       },
@@ -40,21 +40,21 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         textDecoration: "underline",
       },
       "& caption, & figcaption": {
-        margin: "8px 0",
-        fontSize: "16px",
+        margin: `${theme.spacing(1)} 0`,
+        fontSize: theme.spacing(2),
       },
       "& blockquote": {
         fontStyle: "italic",
       },
       "& blockquote p": {
-        fontSize: "16px",
+        fontSize: "1rem",
         fontFamily: "Roboto Slab",
         lineHeight: 2.4,
         borderLeftWidth: "4px",
         borderLeftColor: theme.palette.common.black,
         borderLeftStyle: "solid",
-        paddingLeft: "14px",
-        marginLeft: "-18px",
+        paddingLeft: theme.spacing(1.8),
+        marginLeft: `-${theme.spacing(2)}`,
       },
       "& figure": {
         marginLeft: 0,
@@ -64,17 +64,17 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
       "& img": {
         maxWidth: "100%",
         display: "block",
-        margin: "12px auto",
+        margin: `${theme.spacing(1.5)} auto`,
         borderRadius: "4px",
       },
       "& iframe": {
         maxWidth: "100%",
         display: "block",
-        margin: "12px auto",
+        margin: `${theme.spacing(1.5)} auto`,
         borderRadius: "4px",
       },
       "& table": {
-        fontSize: "18px",
+        fontSize: "1.2rem",
         border: "1px solid #ccc",
         borderCollapse: "collapse",
         margin: 0,
@@ -83,15 +83,15 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
       },
       "& table tr": {
         border: "1px solid #ddd",
-        padding: "5px",
+        padding: theme.spacing(0.8),
       },
       "& table th, & table td": {
-        padding: "10px",
+        padding: theme.spacing(1.2),
         textAlign: "center",
       },
       "& table th": {
         backgroundColor: "#f5f7fa",
-        fontSize: "14px",
+        fontSize: "0.8rem",
         letterSpacing: "1px",
         textTransform: "uppercase",
       },
@@ -158,8 +158,8 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
       },
       "@media screen and (max-width: 960px)": {
         "& h1, & h2": {
-          fontSize: "24px",
-          margin: "16px 0",
+          fontSize: "1.8rem",
+          margin: `${theme.spacing(2)} 0`,
         },
       },
     },

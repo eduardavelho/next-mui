@@ -35,6 +35,7 @@ export function BlogPage({
 }: BlogPageProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
 
   const searchHeaderProps = {
     title,
@@ -69,7 +70,7 @@ export function BlogPage({
     >
       <SearchHeader {...searchHeaderProps} />
       <Box
-        maxWidth="960px"
+        maxWidth={isLargeScreen ? "1140px" : "960px"}
         marginX={isDesktop ? "auto" : undefined}
         marginY={1.6}
       >

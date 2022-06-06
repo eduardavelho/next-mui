@@ -29,6 +29,7 @@ export function FeaturedInfo({
 }: FeaturedInfoProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
 
   const imageBox = (
     <Box
@@ -85,7 +86,7 @@ export function FeaturedInfo({
       }}
     >
       <Box
-        maxWidth={960}
+        maxWidth={isLargeScreen ? "1140px" : "960px"}
         marginX="auto"
         flexDirection={isDesktop ? "row" : "column"}
         display="flex"

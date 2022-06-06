@@ -39,6 +39,8 @@ export function BlogOverview({
 }: BlogOverviewProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
+
   const backgroundIsDark =
     background && isColor(background) ? isColorDark(background) : false;
 
@@ -58,7 +60,7 @@ export function BlogOverview({
         color,
       }}
     >
-      <Box maxWidth={960} marginX="auto">
+      <Box maxWidth={isLargeScreen ? "1140px" : "960px"} marginX="auto">
         <Box>
           {cardsTitle && (
             <Box marginBottom={4}>

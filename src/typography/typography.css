@@ -1,3 +1,9 @@
+@media (min-width: 1600px) {
+  html {
+    font-size: 125%;
+  }
+}
+
 @font-face {
   font-family: "Roboto";
   font-style: normal;

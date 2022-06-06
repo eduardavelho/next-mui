@@ -33,6 +33,7 @@ export function FeaturedTopics({
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const backgroundIsDark =
     background && isColor(background)
       ? isColorDark(background)
@@ -47,7 +48,12 @@ export function FeaturedTopics({
         color: backgroundIsDark ? "rgba(255, 255, 255, 0.8)" : "inherit",
       }}
     >
-      <Box display="flex" flexDirection="column" maxWidth={960} marginX="auto">
+      <Box
+        display="flex"
+        flexDirection="column"
+        maxWidth={isLargeScreen ? "1140px" : "960px"}
+        marginX="auto"
+      >
         {title && (
           <Box
             marginBottom={subtitle ? undefined : 4}

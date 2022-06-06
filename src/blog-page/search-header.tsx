@@ -45,6 +45,7 @@ export function SearchHeader({
       : isColorDark(backgroundFallback);
 
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const searchClasses = searchStyles({ backgroundIsDark });
 
   return (
@@ -58,7 +59,10 @@ export function SearchHeader({
       justifyContent="flex-end"
       flexDirection="column"
     >
-      <Box maxWidth="960px" minWidth={isDesktop ? "480px" : "100%"}>
+      <Box
+        maxWidth={isLargeScreen ? "1140px" : "960px"}
+        minWidth={isDesktop ? "480px" : "100%"}
+      >
         {title && (
           <Box marginBottom={1.6} marginX={isDesktop ? undefined : 1.6}>
             <Typography

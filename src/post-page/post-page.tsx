@@ -1,4 +1,5 @@
 import React from "react";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import { useTheme } from "@material-ui/core/styles";
 import { PostInfo, PostInfoProps } from "./post-info";
@@ -33,6 +34,7 @@ export function PostPage({
   ...socialIconsProps
 }: PostPageProps) {
   const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const backgroundFallback = theme.palette.primary.main;
   const backgroundIsDark =
     background && isColor(background)
@@ -73,7 +75,7 @@ export function PostPage({
 
   return (
     <Page {...pageProps} header={<PostInfo {...postInfoProps} />}>
-      <Box maxWidth="720px" marginX="auto">
+      <Box maxWidth={isLargeScreen ? "960px" : "720px"} marginX="auto">
         <Box>{children}</Box>
         <Box marginTop={3}>
           <PostSuggestions {...postSuggestionsProps} />

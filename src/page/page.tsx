@@ -28,6 +28,7 @@ export function Page({
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const backgroundIsDark =
     background && isColor(background)
       ? isColorDark(background)
@@ -47,7 +48,7 @@ export function Page({
         }
         style={{ background: background || backgroundFallback }}
       >
-        <Box maxWidth="960px">
+        <Box maxWidth={isLargeScreen ? "1140px" : "960px"}>
           <Box paddingBottom={overHeader ? undefined : isDesktop ? 8 : 2}>
             {header}
           </Box>
@@ -67,7 +68,7 @@ export function Page({
           marginX={{ xs: 2, sm: 2, md: 6 }}
           marginLeft={{ md: 20 }}
           marginTop={overHeader ? -20 : undefined}
-          maxWidth="960px"
+          maxWidth={isLargeScreen ? "1140px" : "960px"}
         >
           {overHeader && breadcrumbs !== undefined && breadcrumbs.length && (
             <Box color={headerColor} marginBottom={1}>

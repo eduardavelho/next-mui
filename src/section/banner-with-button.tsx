@@ -28,6 +28,7 @@ export function BannerWithButton({
 }: BannerWithButtonProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
 
   const button = (
     <Button
@@ -91,7 +92,11 @@ export function BannerWithButton({
           }}
         >
           {title && (
-            <Box marginBottom={6} maxWidth={960} marginX="auto">
+            <Box
+              marginBottom={6}
+              maxWidth={isLargeScreen ? "1140px" : "960px"}
+              marginX="auto"
+            >
               <Typography
                 variant={isDesktop ? "h2" : "h4"}
                 component="h2"

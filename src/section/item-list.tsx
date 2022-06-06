@@ -28,6 +28,7 @@ export function ItemList({
   const theme = useTheme();
   const backgroundFallback = theme.palette.primary.main;
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const backgroundIsDark =
     background && isColor(background)
       ? isColorDark(background)
@@ -47,7 +48,7 @@ export function ItemList({
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
-        maxWidth={720}
+        maxWidth={isLargeScreen ? "960px" : "720px"}
         marginX="auto"
       >
         {title && (

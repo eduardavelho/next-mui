@@ -25,9 +25,14 @@ export function PostCardGrid({
 }: PostCardGridProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
 
   return (
-    <Box maxWidth="960px" marginX={isDesktop ? "auto" : 1.6} marginY={1.6}>
+    <Box
+      maxWidth={isLargeScreen ? "1140px" : "960px"}
+      marginX={isDesktop ? "auto" : 1.6}
+      marginY={1.6}
+    >
       <InfiniteScrollGrid
         onRequestMoreItems={onRequestMorePosts}
         hasMoreItems={hasMorePosts}

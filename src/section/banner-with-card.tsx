@@ -14,7 +14,6 @@ export interface BannerWithCardProps {
   content: React.ReactNode;
   card: React.ReactNode;
   actions?: Action[];
-  bannerMinHeight?: string;
 }
 
 type Action = { key: React.Key; label: string } & (
@@ -30,10 +29,10 @@ export function BannerWithCard({
   content,
   actions,
   card,
-  bannerMinHeight = "calc(80vh - 64px)",
 }: BannerWithCardProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const showActionsInColumn = !isDesktop || (actions && actions.length > 2);
 
   return (
@@ -41,11 +40,11 @@ export function BannerWithCard({
       color={color}
       style={{
         background: backgroundColor,
-        minHeight: "calc(100vh - 64px)",
+        minHeight: `calc(${isLargeScreen ? "80vh" : "100vh"} - 64px)`,
       }}
     >
       <Box
-        maxWidth={960}
+        maxWidth={isLargeScreen ? "1140px" : "960px"}
         marginX="auto"
         display="flex"
         alignItems="center"
@@ -57,8 +56,12 @@ export function BannerWithCard({
           display="flex"
           flexDirection="column"
           justifyContent="center"
-          width={isDesktop ? "600px" : "100%"}
-          minHeight={isDesktop ? bannerMinHeight : undefined}
+          width={isDesktop ? (isLargeScreen ? "690px" : "600px") : "100%"}
+          minHeight={
+            isDesktop
+              ? `calc(${isLargeScreen ? "70vh" : "80vh"} - 64px)`
+              : undefined
+          }
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
@@ -67,7 +70,11 @@ export function BannerWithCard({
           }}
         >
           <Box
-            width={isDesktop ? "calc(600px - 100px - 32px)" : undefined}
+            width={
+              isDesktop
+                ? `calc(${isLargeScreen ? "960px" : "600px"} - 100px - 32px)`
+                : undefined
+            }
             paddingX={2}
             paddingY={isDesktop ? undefined : 8}
             textAlign={isDesktop ? undefined : "center"}
@@ -139,7 +146,7 @@ export function BannerWithCard({
           </Box>
         </Box>
         <Box
-          width={isDesktop ? "460px" : undefined}
+          width={isDesktop ? "550px" : undefined}
           paddingX={2}
           style={{
             marginTop: isDesktop ? undefined : "-100px",

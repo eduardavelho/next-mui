@@ -40,6 +40,7 @@ export function ContactForm({
 
   const styles = useStyles({ backgroundIsDark });
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
 
   return (
     <Box
@@ -54,7 +55,7 @@ export function ContactForm({
         backgroundSize: "cover",
       }}
     >
-      <Box maxWidth={960} marginX="auto">
+      <Box maxWidth={isLargeScreen ? "1140px" : "960px"} marginX="auto">
         {title && (
           <Box
             marginBottom={4}

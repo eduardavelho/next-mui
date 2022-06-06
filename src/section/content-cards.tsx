@@ -33,6 +33,7 @@ export function ContentCards({
   const theme = useTheme();
   const styles = useStyles();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const color = titleColor || theme.palette.primary.main;
 
   return (
@@ -48,7 +49,7 @@ export function ContentCards({
         backgroundSize: "cover",
       }}
     >
-      <Box maxWidth={960} marginX="auto">
+      <Box maxWidth={isLargeScreen ? "1140px" : "960px"} marginX="auto">
         {title && (
           <Box marginBottom={subtitle ? 1 : 4}>
             <Typography

@@ -1,4 +1,5 @@
 import React from "react";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Box from "@material-ui/core/Box";
 import { useTheme } from "@material-ui/core/styles";
 import { isColor } from "../utils/is-color";
@@ -14,6 +15,7 @@ export function SocialMyself({
   ...socialCardProps
 }: SocialMyselfProps) {
   const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
   const backgroundFallback = theme.palette.primary.main;
   const backgroundIsDark =
     background && isColor(background)
@@ -41,7 +43,7 @@ export function SocialMyself({
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
-        maxWidth={640}
+        maxWidth={isLargeScreen ? "720px" : "640px"}
         marginX="auto"
       >
         <SocialCard {...socialCardProps} />

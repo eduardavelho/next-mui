@@ -27,6 +27,7 @@ export function Banner({
 }: BannerProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
 
   return (
     <Box
@@ -43,7 +44,7 @@ export function Banner({
         minHeight: "calc(100vh - 64px)",
       }}
     >
-      <Box maxWidth={960} marginX="auto">
+      <Box maxWidth={isLargeScreen ? "1140px" : "960px"} marginX="auto">
         {image && (
           <Box display="flex" alignItems="center" justifyContent="center">
             <img
