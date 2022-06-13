@@ -4,9 +4,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import type { FormInput } from "../../types";
+import type { FormInput } from "../types";
 
-export interface PersonalDataStepProps {
+export interface PersonalDataProps {
   onSubmit: () => void;
   loading: boolean;
   phoneNumberMask: string;
@@ -19,13 +19,13 @@ export interface PersonalDataStepProps {
   };
 }
 
-export function PersonalDataStep({
+export function PersonalData({
   phoneNumberMask,
   submitButtonLabel,
   onSubmit,
   form,
   loading,
-}: PersonalDataStepProps) {
+}: PersonalDataProps) {
   return (
     <form
       style={{ margin: "auto" }}

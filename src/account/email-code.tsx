@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 
-export interface EmailCodeStepProps {
+export interface EmailCodeProps {
   emailCodeInfoText: ReactNode;
   onClickCloseButton: () => void;
   onSubmit: () => void;
@@ -14,14 +14,14 @@ export interface EmailCodeStepProps {
   loading: boolean;
 }
 
-export function EmailCodeStep({
+export function EmailCode({
   emailCodeInfoText,
   onClickCloseButton,
   onSubmit,
   closeButtonLabel,
   onSubmitButtonLabel,
   loading,
-}: EmailCodeStepProps) {
+}: EmailCodeProps) {
   return (
     <>
       <DialogContent>

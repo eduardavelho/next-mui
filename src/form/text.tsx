@@ -45,6 +45,7 @@ export function Text({
       >
         {() => (
           <TextField
+            autoComplete="off"
             label={label}
             multiline={rows !== undefined}
             rows={rows}
@@ -65,6 +66,7 @@ export function Text({
         rows={rows}
         label={label}
         placeholder={placeholder}
+        autoComplete="off"
         variant="outlined"
         fullWidth
         disabled={disabled}

@@ -4,30 +4,30 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-export interface FinishStepProps {
-  finishStepTitleText: ReactNode;
+export interface FinishProps {
+  finishTitleText: ReactNode;
   finishButtonLabel: string;
-  finishStepInfoText: ReactNode;
+  finishInfoText: ReactNode;
   onClickFinishButton: () => void;
 }
 
-export function FinishStep({
+export function Finish({
+  finishTitleText,
+  finishInfoText,
   finishButtonLabel,
-  finishStepTitleText,
-  finishStepInfoText,
   onClickFinishButton,
-}: FinishStepProps) {
+}: FinishProps) {
   return (
     <>
       <Box marginBottom={3} textAlign="center">
-        <Typography variant="h6">{finishStepTitleText}</Typography>
+        <Typography variant="h6">{finishTitleText}</Typography>
         <Box marginY={2}>
           <CheckCircleOutlineIcon
             style={{ width: "6em", height: "6em" }}
             color="primary"
           />
         </Box>
-        <Typography>{finishStepInfoText}</Typography>
+        <Typography>{finishInfoText}</Typography>
       </Box>
       <Button
         variant="contained"

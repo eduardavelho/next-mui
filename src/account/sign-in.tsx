@@ -6,9 +6,9 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import type { FormInput } from "../../types";
+import type { FormInput } from "../types";
 
-export interface LoginStepProps {
+export interface SignInProps {
   onSubmit: () => void;
   loading: boolean;
   submitButtonLabel: string;
@@ -23,7 +23,7 @@ export interface LoginStepProps {
   };
 }
 
-export function LoginStep({
+export function SignIn({
   form,
   onSubmit,
   loading,
@@ -34,7 +34,7 @@ export function LoginStep({
   recoveryAccountOnClick,
   createAccountButtonLabel,
   createAccountOnClick,
-}: LoginStepProps) {
+}: SignInProps) {
   return (
     <>
       <form

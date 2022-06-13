@@ -5,11 +5,11 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import type { FormInput } from "../../types";
+import type { FormInput } from "../types";
 
-export interface UpdatePhoneStepProps {
+export interface UpdatePhoneProps {
   loading: boolean;
-  updatePhoneStepInfoText: ReactNode;
+  updatePhoneInfoText: ReactNode;
   onSubmit: () => void;
   phoneNumberMask: string;
   submitButtonLabel: string;
@@ -18,18 +18,18 @@ export interface UpdatePhoneStepProps {
   };
 }
 
-export function UpdatePhoneStep({
+export function UpdatePhone({
   loading,
   form,
   phoneNumberMask,
   onSubmit,
   submitButtonLabel,
-  updatePhoneStepInfoText,
-}: UpdatePhoneStepProps) {
+  updatePhoneInfoText,
+}: UpdatePhoneProps) {
   return (
     <>
       <Box marginBottom={1}>
-        <Typography>{updatePhoneStepInfoText}</Typography>
+        <Typography>{updatePhoneInfoText}</Typography>
       </Box>
       <form
         style={{

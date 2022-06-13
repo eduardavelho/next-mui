@@ -10,6 +10,7 @@ export default {
 export const Usage = () => {
   return (
     <Select
+      placeholder="Selecione..."
       label="Selecione"
       options={[
         {

@@ -6,9 +6,9 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import type { FormInput } from "../../types";
+import type { FormInput } from "../types";
 
-export interface VerifyCodeStepProps {
+export interface VerifyCodeProps {
   verifyCodeInfoText: ReactNode;
   onClickResendCode: () => void;
   onSubmit: () => void;
@@ -20,7 +20,7 @@ export interface VerifyCodeStepProps {
   };
 }
 
-export function VerifyCodeStep({
+export function VerifyCode({
   verifyCodeInfoText,
   onClickResendCode,
   resendCodeLinkLabel,
@@ -28,7 +28,7 @@ export function VerifyCodeStep({
   onSubmit,
   loading,
   form,
-}: VerifyCodeStepProps) {
+}: VerifyCodeProps) {
   return (
     <>
       <DialogContent>
