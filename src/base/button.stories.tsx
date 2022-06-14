@@ -1,12 +1,12 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { VerifyCode } from "./verify-code";
+import { Button } from "./button";
 
 export default {
-  title: "Example/VerifyCode",
-  component: VerifyCode,
+  title: "Example/Button",
+  component: Button,
 } as Meta;
 
 export const Usage = () => {
-  return <VerifyCode />;
+  return <Button href="/">Um botão</Button>;
 };

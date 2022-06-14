@@ -1,12 +1,12 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { SignIn } from "./sign-in";
+import { Link } from "./link";
 
 export default {
-  title: "Example/SignIn",
-  component: SignIn,
+  title: "Example/Link",
+  component: Link,
 } as Meta;
 
 export const Usage = () => {
-  return <SignIn />;
+  return <Link href="/">Um link</Link>;
 };

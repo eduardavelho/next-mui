@@ -15,11 +15,11 @@ export interface SignInProps {
   recoveryAccountTitleText: ReactNode;
   recoveryAccountLinkLabel: string;
   createAccountButtonLabel: string;
-  phoneNumberMask: string;
+  loginMask: string;
   recoveryAccountOnClick: () => void;
   createAccountOnClick: () => void;
   form: {
-    phoneNumber: FormInput<string>;
+    login: FormInput<string>;
   };
 }
 
@@ -30,7 +30,7 @@ export function SignIn({
   submitButtonLabel,
   recoveryAccountTitleText,
   recoveryAccountLinkLabel,
-  phoneNumberMask,
+  loginMask,
   recoveryAccountOnClick,
   createAccountButtonLabel,
   createAccountOnClick,
@@ -49,21 +49,21 @@ export function SignIn({
       >
         <Box marginBottom={1}>
           <InputMask
-            mask={phoneNumberMask}
-            value={form.phoneNumber.value}
+            mask={loginMask}
+            value={form.login.value}
             disabled={loading}
-            onFocus={form.phoneNumber.onFocus}
-            onBlur={form.phoneNumber.onBlur}
-            onChange={(event) => form.phoneNumber.onChange(event.target.value)}
+            onFocus={form.login.onFocus}
+            onBlur={form.login.onBlur}
+            onChange={(event) => form.login.onChange(event.target.value)}
           >
             {() => (
               <TextField
-                label={form.phoneNumber.label}
+                label={form.login.label}
                 variant="outlined"
                 fullWidth
                 disabled={loading}
-                error={form.phoneNumber.error}
-                helperText={form.phoneNumber.helperText}
+                error={form.login.error}
+                helperText={form.login.helperText}
               />
             )}
           </InputMask>
@@ -74,12 +74,22 @@ export function SignIn({
           type="submit"
           disabled={loading}
         >
-          {loading ? <CircularProgress /> : submitButtonLabel}
+          {loading ? <CircularProgress size="1.5em" /> : submitButtonLabel}
         </Button>
       </form>
-      <Box marginY={2}>
+      <Box marginTop={1}>
+        <Button
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={() => loading === false && createAccountOnClick()}
+        >
+          {createAccountButtonLabel}
+        </Button>
+      </Box>
+      <Box marginTop={2} marginBottom={1}>
         <Typography>
-          {recoveryAccountTitleText}
+          {recoveryAccountTitleText}{" "}
           <Link
             onClick={() => loading === false && recoveryAccountOnClick()}
             style={{ cursor: "pointer" }}
@@ -88,13 +98,6 @@ export function SignIn({
           </Link>
         </Typography>
       </Box>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => loading === false && createAccountOnClick()}
-      >
-        {createAccountButtonLabel}
-      </Button>
     </>
   );
 }

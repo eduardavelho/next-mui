@@ -1,12 +1,12 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { UpdatePhone } from "./update-phone";
+import { Text } from "./text";
 
 export default {
-  title: "Example/UpdatePhone",
-  component: UpdatePhone,
+  title: "Example/Text",
+  component: Text,
 } as Meta;
 
 export const Usage = () => {
-  return <UpdatePhone />;
+  return <Text>teste</Text>;
 };

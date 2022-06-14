@@ -167,7 +167,11 @@ export function ContactForm({
                 fullWidth={isDesktop === false}
                 disabled={loading}
               >
-                {loading ? <CircularProgress /> : submitButtonLabel}
+                {loading ? (
+                  <CircularProgress size="1.5em" />
+                ) : (
+                  submitButtonLabel
+                )}
               </Button>
             </Grid>
           </Grid>

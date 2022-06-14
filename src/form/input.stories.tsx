@@ -1,17 +1,17 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { Text } from "./text";
+import { Input } from "./input";
 
 export default {
-  title: "Example/Text",
-  component: Text,
+  title: "Example/Input",
+  component: Input,
 } as Meta;
 
 export const Usage = () => {
   const [number, setNumber] = React.useState("");
 
   return (
-    <Text
+    <Input
       type="tel"
       label="Teste"
       placeholder="teste"

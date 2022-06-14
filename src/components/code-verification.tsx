@@ -8,37 +8,37 @@ import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import type { FormInput } from "../types";
 
-export interface PhoneVerificationForm {
+export interface CodeVerificationForm {
   code: FormInput<string>;
 }
 
-export interface PhoneVerificationProps {
+export interface CodeVerificationProps {
   finishButtonLabel: string;
   resendCodeLinkLabel: string;
   submitButtonLabel: string;
   codeMask: string;
   onSubmit: () => void;
   onClickResendCode: () => void;
-  recoveryAccountInfoText: ReactNode;
-  form: PhoneVerificationForm;
+  codeVerificationInfoText: ReactNode;
+  form: CodeVerificationForm;
   loading: boolean;
 }
 
-export function PhoneVerification({
+export function CodeVerification({
   loading,
   codeMask,
   submitButtonLabel,
   resendCodeLinkLabel,
   onClickResendCode,
   onSubmit,
-  recoveryAccountInfoText,
+  codeVerificationInfoText,
   form,
-}: PhoneVerificationProps) {
+}: CodeVerificationProps) {
   return (
     <>
       <Box marginBottom={1}>
         <Typography>
-          {recoveryAccountInfoText}
+          {codeVerificationInfoText}{" "}
           <Link
             style={{ cursor: "pointer" }}
             onClick={() => loading === false && onClickResendCode()}
@@ -77,11 +77,11 @@ export function PhoneVerification({
         <Button
           disabled={loading}
           type="submit"
-          variant="contained"
+          variant="outlined"
           color="primary"
           fullWidth
         >
-          {loading ? <CircularProgress /> : submitButtonLabel}
+          {loading ? <CircularProgress size="1.5em" /> : submitButtonLabel}
         </Button>
       </form>
     </>

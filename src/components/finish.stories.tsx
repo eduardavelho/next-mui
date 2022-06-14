@@ -8,5 +8,5 @@ export default {
 } as Meta;
 
 export const Usage = () => {
-  return <Finish />;
+  return <Finish finishTitleText="Finalizou o negócio" />;
 };

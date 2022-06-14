@@ -101,12 +101,12 @@ export function PersonalData({
         <Grid item xs={12}>
           <Button
             type="submit"
-            variant="contained"
+            variant="outlined"
             color="primary"
             fullWidth
             disabled={loading}
           >
-            {loading ? <CircularProgress /> : submitButtonLabel}
+            {loading ? <CircularProgress size="1.5em" /> : submitButtonLabel}
           </Button>
         </Grid>
       </Grid>

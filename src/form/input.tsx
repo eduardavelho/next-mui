@@ -2,7 +2,7 @@ import React from "react";
 import InputMask from "react-input-mask";
 import TextField from "@material-ui/core/TextField";
 
-export interface TextProps {
+export interface InputProps {
   label: string;
   placeholder: string;
   type?: React.InputHTMLAttributes<unknown>["type"];
@@ -17,7 +17,7 @@ export interface TextProps {
   onBlur?: () => void;
 }
 
-export function Text({
+export function Input({
   label,
   placeholder,
   disabled,
@@ -30,7 +30,7 @@ export function Text({
   onChange,
   onFocus,
   onBlur,
-}: TextProps) {
+}: InputProps) {
   if (mask) {
     return (
       <InputMask
