@@ -7,6 +7,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import MuiAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 import Box from "@material-ui/core/Box";
@@ -32,6 +33,7 @@ export interface AppBarProps {
   logoWidth?: number;
   logoHeight?: number;
   icons: Icon[];
+  actions: Item[];
   items: Item[];
   itemsAriaLabel: string;
   drawerButtonAriaLabel: string;
@@ -47,6 +49,7 @@ export function AppBar({
   logoWidth = 36,
   logoHeight = 36,
   icons,
+  actions,
   items,
   itemsAriaLabel,
   drawerButtonAriaLabel,
@@ -115,13 +118,13 @@ export function AppBar({
                   <Link
                     href={item.href}
                     passHref
-                    key={`${item.key}-app-bar-tag`}
+                    key={`${item.key}-app-bar-tab`}
                   >
                     <Tab label={item.label} component="a" tabIndex={0} />
                   </Link>
                 ) : (
                   <Tab
-                    key={`${item.key}-app-bar-tag`}
+                    key={`${item.key}-app-bar-tab`}
                     label={item.label}
                     onClick={item.onClick}
                     tabIndex={0}
@@ -139,6 +142,28 @@ export function AppBar({
             justifyContent="flex-end"
             alignItems="center"
           >
+            {actions.map((action) => (
+              <Box key={`${action.key}-app-bar-action`} marginRight={1.5}>
+                {"href" in action ? (
+                  <Link href={action.href} passHref>
+                    <Button variant="outlined" color="inherit" component="a">
+                      {action.label}
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button
+                    variant="outlined"
+                    color="inherit"
+                    onClick={action.onClick}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    {action.label}
+                  </Button>
+                )}
+              </Box>
+            ))}
             {icons.map((item) => (
               <Box key={`${item.key}-app-bar-icon`} marginRight={1.5}>
                 {"href" in item ? (

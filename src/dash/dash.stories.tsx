@@ -21,6 +21,7 @@ export const Usage = () => {
       appBarBackgroundColor="red"
       appBarItemsAriaLabel="Items"
       appBarIcons={[]}
+      appBarActions={[]}
       appBarColor="yellow"
       drawerButtonAriaLabel="Drawer button"
       logo="https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg"

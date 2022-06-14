@@ -28,7 +28,8 @@ export const Usage = () => {
         drawerIcon={() => (
           <Avatar src="https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg" />
         )}
-        items={[
+        items={[]}
+        actions={[
           { key: 1, label: "Link A", href: "/" },
           { key: 2, label: "Link B", href: "/" },
           { key: 3, label: "Link C", href: "/" },
