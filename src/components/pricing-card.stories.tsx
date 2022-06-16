@@ -14,9 +14,9 @@ export const Usage = () => (
     promotionalPrice="R$120,00"
     priceDescription="ao mês"
     features={[
-      "Programador e bolsista-pesquisador",
-      "doutorado financiado pelo Conselho",
-      "Nacional de Desenvolvimento Científico",
+      { key: 1, content: "Programador e bolsista-pesquisador" },
+      { key: 2, content: "doutorado financiado pelo Conselho" },
+      { key: 3, content: "Nacional de Desenvolvimento Científico" },
     ]}
     descriptionText="Programador e bolsista-pesquisador de doutorado financiado pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico do Brasil (CNPq)."
     subscribeLabel="Inscreva-se"

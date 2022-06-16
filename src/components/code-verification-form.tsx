@@ -8,11 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import type { FormInput } from "../types";
 
-export interface CodeVerificationForm {
-  code: FormInput<string>;
-}
-
-export interface CodeVerificationProps {
+export interface CodeVerificationFormProps {
   finishButtonLabel: string;
   resendCodeLinkLabel: string;
   submitButtonLabel: string;
@@ -20,11 +16,13 @@ export interface CodeVerificationProps {
   onSubmit: () => void;
   onClickResendCode: () => void;
   codeVerificationInfoText: ReactNode;
-  form: CodeVerificationForm;
   loading: boolean;
+  form: {
+    code: FormInput<string>;
+  };
 }
 
-export function CodeVerification({
+export function CodeVerificationForm({
   loading,
   codeMask,
   submitButtonLabel,
@@ -33,7 +31,7 @@ export function CodeVerification({
   onSubmit,
   codeVerificationInfoText,
   form,
-}: CodeVerificationProps) {
+}: CodeVerificationFormProps) {
   return (
     <>
       <Box marginBottom={1}>

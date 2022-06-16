@@ -1,15 +1,15 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { CodeVerification } from "./code-verification";
+import { CodeVerificationForm } from "./code-verification-form";
 
 export default {
-  title: "Example/CodeVerification",
-  component: CodeVerification,
+  title: "Example/CodeVerificationForm",
+  component: CodeVerificationForm,
 } as Meta;
 
 export const Usage = () => {
   return (
-    <CodeVerification
+    <CodeVerificationForm
       finishButtonLabel="Confirmar"
       resendCodeLinkLabel="Reenviar"
       submitButtonLabel="Enviar"

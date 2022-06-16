@@ -1,15 +1,15 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { PersonalData } from "./personal-data";
+import { PersonalDataForm } from "./personal-data-form";
 
 export default {
-  title: "Example/PersonalData",
-  component: PersonalData,
+  title: "Example/PersonalDataForm",
+  component: PersonalDataForm,
 } as Meta;
 
 export const Usage = () => {
   return (
-    <PersonalData
+    <PersonalDataForm
       onSubmit={async () => {
         alert("onSubmit");
       }}

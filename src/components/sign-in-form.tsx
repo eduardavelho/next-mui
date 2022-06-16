@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import type { FormInput } from "../types";
 
-export interface SignInProps {
+export interface SignInFormProps {
   onSubmit: () => void;
   loading: boolean;
   submitButtonLabel: string;
@@ -23,7 +23,7 @@ export interface SignInProps {
   };
 }
 
-export function SignIn({
+export function SignInForm({
   form,
   onSubmit,
   loading,
@@ -34,7 +34,7 @@ export function SignIn({
   recoveryAccountOnClick,
   createAccountButtonLabel,
   createAccountOnClick,
-}: SignInProps) {
+}: SignInFormProps) {
   return (
     <>
       <form

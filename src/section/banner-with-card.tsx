@@ -72,7 +72,7 @@ export function BannerWithCard({
           <Box
             width={
               isDesktop
-                ? `calc(${isLargeScreen ? "960px" : "600px"} - 100px - 32px)`
+                ? `calc(${isLargeScreen ? "690px" : "600px"} - 100px - 32px)`
                 : undefined
             }
             paddingX={2}
@@ -146,7 +146,7 @@ export function BannerWithCard({
           </Box>
         </Box>
         <Box
-          width={isDesktop ? "550px" : undefined}
+          width={isDesktop ? (isLargeScreen ? "518px" : "428px") : undefined}
           paddingX={2}
           style={{
             marginTop: isDesktop ? undefined : "-100px",

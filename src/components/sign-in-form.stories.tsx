@@ -1,15 +1,15 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { SignIn } from "./sign-in";
+import { SignInForm } from "./sign-in-form";
 
 export default {
-  title: "Example/SignIn",
-  component: SignIn,
+  title: "Example/SignInForm",
+  component: SignInForm,
 } as Meta;
 
 export const Usage = () => {
   return (
-    <SignIn
+    <SignInForm
       onSubmit={async () => {}}
       loading={false}
       submitButtonLabel="Entrar"

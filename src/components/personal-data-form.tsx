@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import type { FormInput } from "../types";
 
-export interface PersonalDataProps {
+export interface PersonalDataFormProps {
   onSubmit: () => void;
   loading: boolean;
   phoneNumberMask: string;
@@ -19,13 +19,13 @@ export interface PersonalDataProps {
   };
 }
 
-export function PersonalData({
+export function PersonalDataForm({
   phoneNumberMask,
   submitButtonLabel,
   onSubmit,
   form,
   loading,
-}: PersonalDataProps) {
+}: PersonalDataFormProps) {
   return (
     <form
       style={{ margin: "auto" }}
