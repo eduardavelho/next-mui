@@ -1,6 +1,8 @@
 import React from "react";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import MuiBottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import Slide from "@material-ui/core/Slide";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -17,6 +19,9 @@ export interface BottomNavigationProps {
 export function BottomNavigation({ items }: BottomNavigationProps) {
   const [value, setValue] = React.useState(undefined as string | undefined);
   const router = useRouter() ?? { pathname: "/" };
+  const scrollTrigger = useScrollTrigger({
+    target: typeof window !== "undefined" ? window : undefined,
+  });
 
   function mapItemToValue(item: Item) {
     const hash = window.location.hash;
@@ -51,47 +56,53 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
   }, [router.pathname]);
 
   return (
-    <MuiBottomNavigation
-      value={value}
-      onChange={(_, nextValue) => {
-        if (!router.pathname.startsWith(nextValue)) {
-          setValue(nextValue);
-        }
-      }}
-      style={{
-        width: "100%",
-        position: "sticky",
-        bottom: 0,
-        zIndex: 1100,
-      }}
-      showLabels
-    >
-      {items.map(({ key, label, Icon, ...item }) =>
-        "href" in item ? (
-          <Link href={item.href} passHref key={`${key}-bottom-navigation-item`}>
+    <Slide appear={false} direction="up" in={!scrollTrigger}>
+      <MuiBottomNavigation
+        value={value}
+        onChange={(_, nextValue) => {
+          if (!router.pathname.startsWith(nextValue)) {
+            setValue(nextValue);
+          }
+        }}
+        style={{
+          width: "100%",
+          position: "sticky",
+          bottom: 0,
+          zIndex: 1100,
+        }}
+        showLabels
+      >
+        {items.map(({ key, label, Icon, ...item }) =>
+          "href" in item ? (
+            <Link
+              href={item.href}
+              passHref
+              key={`${key}-bottom-navigation-item`}
+            >
+              <BottomNavigationAction
+                component="a"
+                value={item.href}
+                label={label}
+                icon={<Icon />}
+                showLabel
+                className={item.href === value ? "Mui-selected" : undefined}
+              />
+            </Link>
+          ) : (
             <BottomNavigationAction
-              component="a"
-              value={item.href}
+              key={`${key}-bottom-navigation`}
+              value={key}
+              onClick={item.onClick}
               label={label}
               icon={<Icon />}
               showLabel
-              className={item.href === value ? "Mui-selected" : undefined}
+              style={{
+                cursor: "pointer",
+              }}
             />
-          </Link>
-        ) : (
-          <BottomNavigationAction
-            key={`${key}-bottom-navigation`}
-            value={key}
-            onClick={item.onClick}
-            label={label}
-            icon={<Icon />}
-            showLabel
-            style={{
-              cursor: "pointer",
-            }}
-          />
-        )
-      )}
-    </MuiBottomNavigation>
+          )
+        )}
+      </MuiBottomNavigation>
+    </Slide>
   );
 }

@@ -33,17 +33,41 @@ export interface TextProps<HtmlComponent extends HtmlComponentType> {
     | "caption"
     | "button";
   children?: React.ReactNode;
-  style?: React.StyleHTMLAttributes<HtmlComponent>;
+  lineHeight?: number;
+  fontFamily?: string;
+  fontSize?: string;
+  fontWeight?: number;
+  textTransform?: "uppercase" | "lowercase" | "capitalize";
+  letterSpacing?: number;
+  color?: string;
 }
 
 export function Text<HtmlComponent extends HtmlComponentType>({
   component = "span" as HtmlComponent,
   variant = "body1",
-  style,
+  lineHeight,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  textTransform,
+  color,
   children,
 }: TextProps<HtmlComponent>) {
   return (
-    <Typography component={component as any} variant={variant} style={style}>
+    <Typography
+      component={component as any}
+      variant={variant}
+      style={{
+        lineHeight,
+        textTransform,
+        fontFamily,
+        fontSize,
+        fontWeight,
+        letterSpacing,
+        color,
+      }}
+    >
       {children}
     </Typography>
   );

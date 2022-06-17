@@ -42,7 +42,7 @@ export function Page({
         paddingTop={isDesktop ? 8 : 2}
         paddingBottom={overHeader ? 24 : undefined}
         paddingX={{ xs: 2, sm: 2, md: 6 }}
-        paddingLeft={{ md: 20 }}
+        paddingLeft={{ md: isLargeScreen ? 24 : 20 }}
         color={
           color || (backgroundIsDark ? theme.palette.common.white : undefined)
         }
@@ -66,7 +66,7 @@ export function Page({
       >
         <Box
           marginX={{ xs: 2, sm: 2, md: 6 }}
-          marginLeft={{ md: 20 }}
+          marginLeft={{ md: isLargeScreen ? 30 : 20 }}
           marginTop={overHeader ? -20 : undefined}
           maxWidth={isLargeScreen ? "1140px" : "960px"}
         >
