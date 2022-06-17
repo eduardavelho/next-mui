@@ -14,8 +14,8 @@ export const Usage = () => {
       subtitle="subtítulo aqui com um pouco mais de texto pra testar."
       open
       actions={[
-        { label: "teste 1", href: "/" },
-        { label: "teste 2", href: "/", autoFocus: true },
+        { key: 1, label: "teste 1", href: "/" },
+        { key: 2, label: "teste 2", href: "/", autoFocus: true },
       ]}
     >
       um monte de texto aqui.
