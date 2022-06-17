@@ -59,7 +59,7 @@ export function Steps({
               : onClickStep && (() => onClickStep(key));
 
             return (
-              <Step key={key} disabled={disabled}>
+              <Step key={`step-item-${key}`} disabled={disabled}>
                 <StepLabel
                   error={errorProp}
                   onClick={onClickProp}

@@ -16,7 +16,7 @@ export interface ContentModalProps {
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   children: React.ReactNode;
-  actions?: ({ label: string; autoFocus?: boolean } & (
+  actions?: ({ key: React.Key; label: string; autoFocus?: boolean } & (
     | { href: string }
     | { onClick: () => void }
   ))[];
@@ -92,6 +92,7 @@ export function ContentModal({
           {actions.map((action) => {
             const button = (
               <Button
+                key={"href" in action ? undefined : action.key}
                 color="primary"
                 autoFocus={action.autoFocus}
                 component={"href" in action ? "a" : "button"}
@@ -102,7 +103,11 @@ export function ContentModal({
             );
 
             return "href" in action ? (
-              <Link href={action.href} passHref>
+              <Link
+                href={action.href}
+                passHref
+                key={`content-modal-action-${action.key}`}
+              >
                 {button}
               </Link>
             ) : (
