@@ -36,7 +36,7 @@ export function ItemList({
 
   return (
     <Box
-      paddingY={16}
+      paddingY={isDesktop ? 16 : 8}
       paddingX={2}
       style={{
         background: background || backgroundFallback,
