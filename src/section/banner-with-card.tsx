@@ -57,9 +57,7 @@ export function BannerWithCard({
         paddingBottom={isDesktop ? undefined : 2}
         position={isDesktop ? "relative" : undefined}
       >
-        <Box
-          width={isDesktop ? (isLargeScreen ? "690px" : "600px") : undefined}
-        >
+        <Box width={isDesktop ? (isLargeScreen ? "690px" : "600px") : "100%"}>
           <Box
             position={isDesktop ? "absolute" : undefined}
             top={isDesktop ? "0" : undefined}
