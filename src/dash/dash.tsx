@@ -103,7 +103,7 @@ export function Dash({
         backgroundColor={footerBackgroundColor}
         {...socialIconsProps}
       />
-      <Hidden smUp>
+      <Hidden mdUp>
         <BottomNavigation items={bottomNavigationItems} />
       </Hidden>
       <Snackbar content={snackbarContent} setContent={setSnackbarContent} />
