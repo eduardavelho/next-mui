@@ -77,7 +77,7 @@ export function FeaturedInfo({
 
   return (
     <Box
-      paddingY={16}
+      paddingY={isDesktop ? 16 : 8}
       paddingX={2}
       color={color || theme.palette.primary.contrastText}
       style={{

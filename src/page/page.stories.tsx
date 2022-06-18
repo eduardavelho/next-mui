@@ -7,20 +7,7 @@ export default {
   component: Page,
 } as Meta;
 
-export const Paper = () => (
-  <Page
-    header={<h1>Some header here</h1>}
-    background="#000"
-    breadcrumbs={[
-      { key: 1, label: "Home", href: "/" },
-      { key: 2, label: "Also home", href: "/" },
-    ]}
-  >
-    <p style={{ paddingBottom: "256px" }}>Content goes here.</p>
-  </Page>
-);
-
-export const NoPaper = () => (
+export const Usage = () => (
   <Page
     overHeader={false}
     header={<h1>Some header here</h1>}
