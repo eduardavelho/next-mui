@@ -66,7 +66,7 @@ export function BottomNavigation({ items }: BottomNavigationProps) {
         }}
         style={{
           width: "100%",
-          position: "sticky",
+          position: "fixed",
           bottom: 0,
           zIndex: 1100,
         }}
