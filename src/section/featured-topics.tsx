@@ -120,8 +120,14 @@ function TopicItem({
         flex={1}
         paddingRight={isDesktop ? 2 : undefined}
       >
-        <Box>
-          <Typography variant={isDesktop ? "h5" : "h6"} component="span">
+        <Box marginBottom={isDesktop ? undefined : 1}>
+          <Typography
+            variant={isDesktop ? "h5" : "h6"}
+            component="span"
+            style={{
+              lineHeight: isDesktop ? undefined : 1.2,
+            }}
+          >
             {title}
           </Typography>
         </Box>

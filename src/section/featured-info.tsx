@@ -3,6 +3,8 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { isColor } from "../utils/is-color";
+import { isColorDark } from "../utils/is-color-dark";
 
 export interface FeaturedInfoProps {
   image: string;
@@ -11,7 +13,7 @@ export interface FeaturedInfoProps {
   imageHeight?: number;
   showImageAtEnd?: boolean;
   background?: string;
-  color?: string;
+  titleColor?: string;
   title: React.ReactNode;
   content: React.ReactNode;
 }
@@ -23,13 +25,18 @@ export function FeaturedInfo({
   imageHeight = 256,
   showImageAtEnd,
   background,
-  color,
+  titleColor,
   title,
   content,
 }: FeaturedInfoProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up(1600));
+
+  const backgroundIsDark =
+    background && isColor(background) ? isColorDark(background) : false;
+
+  const color = backgroundIsDark ? theme.palette.common.white : undefined;
 
   const imageBox = (
     <Box
@@ -57,7 +64,13 @@ export function FeaturedInfo({
   const textBox = (
     <Box display="flex" flexDirection={"column"} justifyContent="center">
       <Box marginBottom={isDesktop ? 2.5 : 1}>
-        <Typography variant={isDesktop ? "h4" : "h5"} component="h2">
+        <Typography
+          variant={isDesktop ? "h4" : "h5"}
+          component="h2"
+          style={{
+            color: titleColor || theme.palette.primary.contrastText,
+          }}
+        >
           {title}
         </Typography>
       </Box>
@@ -67,6 +80,7 @@ export function FeaturedInfo({
           component="p"
           style={{
             fontWeight: 300,
+            color,
           }}
         >
           {content}
@@ -79,7 +93,6 @@ export function FeaturedInfo({
     <Box
       paddingY={isDesktop ? 16 : 8}
       paddingX={2}
-      color={color || theme.palette.primary.contrastText}
       style={{
         background: background || theme.palette.primary.main,
         backgroundSize: "cover",
