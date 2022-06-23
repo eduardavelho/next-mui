@@ -78,7 +78,11 @@ export function PostPage({
       <Box maxWidth={isLargeScreen ? "960px" : "720px"} marginX="auto">
         <Box>{children}</Box>
         <Box marginTop={3}>
-          <PostSuggestions {...postSuggestionsProps} />
+          <PostSuggestions
+            {...postSuggestionsProps}
+            darkIcons={false}
+            lightIcons={false}
+          />
         </Box>
       </Box>
     </Page>
