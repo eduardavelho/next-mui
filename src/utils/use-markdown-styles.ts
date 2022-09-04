@@ -95,6 +95,10 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         letterSpacing: "1px",
         textTransform: "uppercase",
       },
+      "& code:not(.hljs)": {
+        backgroundColor: "rgba(0,0,0,0.1)",
+        borderRadius: "2px",
+      },
       "& pre code .hljs": {
         display: "block",
         overflowX: "auto",
