@@ -14,18 +14,18 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         fontSize: "1.2rem",
         fontFamily: "Roboto Slab",
         lineHeight: 1.8,
-        margin: `${theme.spacing(2)} 0`,
+        margin: `${theme.spacing(2)}px 0`,
       },
       "& h1, & h2": {
         fontSize: "2.2rem",
-        margin: `${theme.spacing(2.5)} 0`,
+        margin: `${theme.spacing(2.5)}px 0`,
       },
       "& h3, & h4, & h5, & h6": {
         fontSize: "1.8rem",
-        margin: `${theme.spacing(2)} 0`,
+        margin: `${theme.spacing(2)}px 0`,
       },
       "& li": {
-        margin: `${theme.spacing(1.5)} 0`,
+        margin: `${theme.spacing(1.5)}px 0`,
       },
       "& li, & dt, & dd": {
         fontSize: "1.2rem",
@@ -40,8 +40,8 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         textDecoration: "underline",
       },
       "& caption, & figcaption": {
-        margin: `${theme.spacing(1)} 0`,
-        fontSize: theme.spacing(2),
+        margin: `${theme.spacing(1)}px 0`,
+        fontSize: `${theme.spacing(2)}px`,
       },
       "& blockquote": {
         fontStyle: "italic",
@@ -53,8 +53,8 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         borderLeftWidth: "4px",
         borderLeftColor: theme.palette.common.black,
         borderLeftStyle: "solid",
-        paddingLeft: theme.spacing(1.8),
-        marginLeft: `-${theme.spacing(2)}`,
+        paddingLeft: `${theme.spacing(1.8)}px`,
+        marginLeft: `-${theme.spacing(2)}px`,
       },
       "& figure": {
         marginLeft: 0,
@@ -64,13 +64,13 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
       "& img": {
         maxWidth: "100%",
         display: "block",
-        margin: `${theme.spacing(1.5)} auto`,
+        margin: `${theme.spacing(1.5)}px auto`,
         borderRadius: "4px",
       },
       "& iframe": {
         maxWidth: "100%",
         display: "block",
-        margin: `${theme.spacing(1.5)} auto`,
+        margin: `${theme.spacing(1.5)}px auto`,
         borderRadius: "4px",
       },
       "& table": {
@@ -83,10 +83,10 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
       },
       "& table tr": {
         border: "1px solid #ddd",
-        padding: theme.spacing(0.8),
+        padding: `${theme.spacing(0.8)}px`,
       },
       "& table th, & table td": {
-        padding: theme.spacing(1.2),
+        padding: `${theme.spacing(1.2)}px`,
         textAlign: "center",
       },
       "& table th": {
@@ -120,9 +120,10 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
         textAlign: "right",
         width: "2ch",
       },
-      "& .hljs-attribute, & .hljs-doctag, & .hljs-keyword, & .hljs-meta .hljs-keyword, & .hljs-name, & .hljs-selector-tag": {
-        fontWeight: "700",
-      },
+      "& .hljs-attribute, & .hljs-doctag, & .hljs-keyword, & .hljs-meta .hljs-keyword, & .hljs-name, & .hljs-selector-tag":
+        {
+          fontWeight: "700",
+        },
       "& .hljs-section, & .hljs-title": {
         fontWeight: "700",
       },
@@ -135,31 +136,34 @@ export const useMarkdownStyles: () => { markdown: string } = makeStyles(
       "& .hljs": {
         color: "#ddd",
       },
-      "& .hljs-tag, & .hljs-keyword, & .hljs-selector-tag, & .hljs-literal, & .hljs-strong, & .hljs-name": {
-        color: "#f92672",
-      },
+      "& .hljs-tag, & .hljs-keyword, & .hljs-selector-tag, & .hljs-literal, & .hljs-strong, & .hljs-name":
+        {
+          color: "#f92672",
+        },
       "& .hljs-code": {
         color: "#66d9ef",
       },
       "& .hljs-attribute, & .hljs-symbol, & .hljs-regexp, & .hljs-link": {
         color: "#bf79db",
       },
-      "& .hljs-string, & .hljs-bullet, & .hljs-subst, & .hljs-title, & .hljs-section, & .hljs-emphasis, & .hljs-type, & .hljs-built_in, & .hljs-selector-attr, & .hljs-selector-pseudo, & .hljs-addition, & .hljs-variable, & .hljs-template-tag, & .hljs-template-variable": {
-        color: "#a6e22e",
-      },
+      "& .hljs-string, & .hljs-bullet, & .hljs-subst, & .hljs-title, & .hljs-section, & .hljs-emphasis, & .hljs-type, & .hljs-built_in, & .hljs-selector-attr, & .hljs-selector-pseudo, & .hljs-addition, & .hljs-variable, & .hljs-template-tag, & .hljs-template-variable":
+        {
+          color: "#a6e22e",
+        },
       "& .hljs-title.class_, & .hljs-class .hljs-title": {
         color: "white",
       },
       "& .hljs-comment, & .hljs-quote, & .hljs-deletion, & .hljs-meta": {
         color: "#75715e",
       },
-      "& .hljs-keyword, & .hljs-selector-tag, & .hljs-literal, & .hljs-doctag, & .hljs-title, & .hljs-section, & .hljs-type, & .hljs-selector-id": {
-        fontWeight: "bold",
-      },
+      "& .hljs-keyword, & .hljs-selector-tag, & .hljs-literal, & .hljs-doctag, & .hljs-title, & .hljs-section, & .hljs-type, & .hljs-selector-id":
+        {
+          fontWeight: "bold",
+        },
       "@media screen and (max-width: 960px)": {
         "& h1, & h2": {
           fontSize: "1.8rem",
-          margin: `${theme.spacing(2)} 0`,
+          margin: `${theme.spacing(2)}px 0`,
         },
       },
     },
