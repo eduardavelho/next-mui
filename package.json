@@ -12,7 +12,7 @@
     "serve-storybook": "serve storybook-static -l 6006",
     "deploy-storybook": "gh-pages -d storybook-static"
   },
-  "author": "egvelho",
+  "author": "eduardavelho",
   "license": "GPL-3.0",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
